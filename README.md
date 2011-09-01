@@ -35,3 +35,57 @@ Options:
 For example, to build the example testfiles provided in the repo, you would run the following:
 
 `interleave testfiles/source1.js testfiles/source2.js`
+
+Interleave will then look for include patterns (see below) and attempt to include files based on what it finds.
+
+## Include Patterns
+
+An include pattern follows the same convention as [Sprockets](http://getsprockets.com/) and is a single-line comment with an equal sign straight after the two slashes: `//=`.
+
+Unlike sprockets though interleave adopts a url like format for including files.  For instance, to include a file relative to the current file you would simply add a comment line like so:
+
+```js
+var TEST = (function() {
+    //= lib/test.js
+})();
+```
+
+The trailing .js is optional, so `//= lib/test` is just as valid.
+
+#### Github Includes
+
+Now one thing I have longed for is the ability to bring in a file directly from github, so I've added support for that.  For instance, the following would bring in [underscore](https://github.com/documentcloud/underscore):
+
+
+```js
+//= github://documentcloud/underscore/underscore
+```
+
+Want a specific version of the library, well if the package maintainer is using [git tagging](http://learn.github.com/p/tagging.html) then you can add a version specifier:
+
+```js
+//= github://documentcloud/underscore/underscore?1.1.2
+```
+
+#### HTTP Includes
+
+Behind the scenes, the github include mechanism is simply a wrapper on a standard http includer, so you can also do this:
+
+```js
+//= http://code.jquery.com/jquery-1.6.2.js
+```
+
+Kudos to [Mikeal Rogers](http://twitter.com/#!/mikeal) for his [Request](https://github.com/mikeal/request) package.  It makes this kind of thing so easy...
+
+## To Do
+
+- Checking whether a file has been included previously before loading it again
+- Caching remote includes in a local cache
+
+## Questions Feedback
+
+Just drop in an [issue](https://github.com/DamonOehlman/interleave/issues), I find it works really well.
+
+## License
+
+[MIT](https://github.com/DamonOehlman/interleave/blob/master/LICENSE.md)
