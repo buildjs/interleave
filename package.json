@@ -6,6 +6,7 @@
     "version": "0.0.1",
     
     "main": "interleave.js",
+    "bin": { "interleave": "./bin/interleave" },
     "engines": { "node": "0.4.x" },
         
     "dependencies": {
