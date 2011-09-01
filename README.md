@@ -4,6 +4,12 @@ I have searched the Interwebz for a good Javascript build tool.  I have definite
 
 This is an attempt to scratch the itch.  It's very alpha at the moment, but does work (it seems)...
 
+## Installation
+
+Install using npm:
+
+`npm install interleave`
+
 ## Usage
 
 ```
