@@ -1,8 +1,16 @@
 # Interleave
 
-I have searched the Interwebz for a good Javascript build tool.  I have definitely found one or two that I have liked, but none that have really ever properly scratched the itch.
+I've used a few JS build tools over the last little while, and while using shell script or ANT projects to simply concatenate a number of files together into a single JS file works for some, it's [not something that I'm that content with](http://www.distractable.net/coding/javascript-builds-beyond-concatenation).
 
-This is an attempt to scratch the itch.  It's very alpha at the moment, but does work (it seems)...
+Mostly I've been using [Sprockets](https://github.com/sstephenson/sprockets) which I quite like, but it's written in Ruby and while Ruby is good, I really think I should be able to build my JS libraries using pure JavaScript ([Node.js](http://nodejs.org) in this particular case).
+
+Also, I've had a tinker with [Sam Stephenson's](https://github.com/sstephenson) next JavaScript build tool, [Stitch](https://github.com/sstephenson/stitch) and while it's excellent I feel it is geared towards application dev rather than JS library development.
+
+Also in the same space as Stitch (but approaching things from a different angle), we have [Ender](https://github.com/ender-js/Ender) which is another very interesting strategy for JS builds. 
+
+So where does Interleave fit in?  Interleave attempts to provide tooling for creating JavaScript libraries, whereas Ender and Stitch both focus more on the application development space (IMO).  
+
+Give it a try, and let me know what you think.  If it doesn't do what you need, then you definitely want to give one of the options mentioned above a go.
 
 ## Installation
 
