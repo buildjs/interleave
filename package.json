@@ -1,0 +1,30 @@
+{
+    "name": "interleave",
+    "description": "Clientside JS build tool",
+    "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
+    "tags": ["build"],
+    "version": "0.0.1",
+    
+    "main": "interleave.js",
+    "engines": { "node": "0.4.x" },
+        
+    "dependencies": {
+        "commander": "0.1.x"
+    },
+    
+    "devDependencies": {
+        "vows": "0.5.x"
+    },
+    
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/DamonOehlman/interleave.git"
+    },
+    
+    "bugs": {
+        "web": "http://github.com/DamonOehlman/interleave/issues"
+    },
+    
+    "contributors": [
+    ]
+}
