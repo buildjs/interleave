@@ -6,7 +6,12 @@ var interleave = require('../lib/interleave'),
 	program = require('commander');
 	
 function progInit() {
+	program.usage('[options] target1.js [target2.js] ..');
+	program.option('-o, --out [file]', 'Target output file');
+	program.option('-m, --multiaction [multiaction]', 'Multiple files processing option');
 	program.parse(process.argv);
+	
+	interleave(program);
 } // progInit
 	
 fs.readFile(path.join(__dirname, '../package.json'), 'utf8', function(err, contents) {
