@@ -79,6 +79,8 @@ Kudos to [Mikeal Rogers](http://twitter.com/#!/mikeal) for his [Request](https:/
 
 ## To Do
 
+- Add [UglifyJS](https://github.com/mishoo/UglifyJS) support
+- Add an `npm://` loader for supported file
 - Checking whether a file has been included previously before loading it again
 - Caching remote includes in a local cache
 
