@@ -11,6 +11,9 @@ A test file
 // TEST A STANDARD HTTP INClUDE
 //= http://code.jquery.com/jquery-1.6.2.js
 
+// TEST AN ALIASED INCLUDE
+//= backbone!backbone
+
 var TEST = (function() {
     //= lib/test
 })();

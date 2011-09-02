@@ -1,0 +1,6 @@
+{
+    "aliases": {
+        "cog": "github://sidelab/cog/cogs/$1",
+        "backbone": "github://documentcloud/backbone/$1?0.5.0"
+    }
+}
