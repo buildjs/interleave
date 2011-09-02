@@ -6,6 +6,8 @@ Here be the history of Interleave.
 
 * Added `gcode://` loader - `googlecode://` also works...
 * Added support for aliasing local files
+* Made the output colourful
+* Fixed #1
 
 ## 0.0.4 (Published)
 

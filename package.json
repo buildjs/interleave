@@ -12,7 +12,8 @@
     "dependencies": {
         "async": "0.1.x",
         "commander": "0.1.x",
-        "request": "2.x.x"
+        "request": "2.x.x",
+        "colors": "0.5.x"
     },
     
     "devDependencies": {
