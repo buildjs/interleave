@@ -77,6 +77,10 @@ Behind the scenes, the github include mechanism is simply a wrapper on a standar
 
 Kudos to [Mikeal Rogers](http://twitter.com/#!/mikeal) for his [Request](https://github.com/mikeal/request) package.  It makes this kind of thing so easy...
 
+## Changelog
+
+See [CHANGELOG.md](https://github.com/DamonOehlman/interleave/blob/master/CHANGELOG.md).
+
 ## To Do
 
 - Add [UglifyJS](https://github.com/mishoo/UglifyJS) support

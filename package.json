@@ -3,7 +3,7 @@
     "description": "Clientside JS build tool",
     "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
     "tags": ["build"],
-    "version": "0.0.2",
+    "version": "0.0.3",
     
     "main": "interleave.js",
     "bin": { "interleave": "./bin/interleave" },
