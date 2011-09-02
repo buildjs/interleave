@@ -34,9 +34,17 @@ Options:
 
 For example, to build the example testfiles provided in the repo, you would run the following:
 
-`interleave testfiles/source1.js testfiles/source2.js`
+```
+interleave testfiles/source1.js testfiles/source2.js
+```
 
-Interleave will then look for include patterns (see below) and attempt to include files based on what it finds.
+Interleave will then look for include patterns (see below) in each of the files and attempt to include files based on what it finds.
+
+You can also tell interleave to load all the files in a particular path (or multiple paths):
+
+```
+interleave testfiles
+```
 
 ## Include Patterns
 
