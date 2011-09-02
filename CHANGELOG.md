@@ -2,7 +2,11 @@
 
 Here be the history of Interleave.
 
-## 0.0.4
+## 0.0.5 (Not yet published)
+
+* Added `gcode://` loader - `googlecode://` also works...
+
+## 0.0.4 (Published)
 
 * Added the `pass` multihandler, which simply passes all input files through, interleaves and writes them out to the output directory.
 

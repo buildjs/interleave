@@ -8,6 +8,9 @@ A test file
 // TEST A BITBUCKET INCLUDE
 //= bitbucket://puffnfresh/roy/src/types
 
+// TEST A GOOGLECODE INCLUDE
+//= gcode://glmatrix/hg/glMatrix
+
 // TEST A STANDARD HTTP INClUDE
 //= http://code.jquery.com/jquery-1.6.2.js
 

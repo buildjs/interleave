@@ -84,6 +84,12 @@ Just like Github includes, but for [BitBucket](http://bitbucket.org/):
 //= bitbucket://puffnfresh/roy/src/types
 ```
 
+### Googlecode Includes
+
+```js
+//= gcode://glmatrix/hg/glMatrix
+```
+
 ### HTTP Includes
 
 Behind the scenes, the github and bitbucket includes simply wrap a standard http includer, so you can also do this:
@@ -172,7 +178,6 @@ See [CHANGELOG.md](https://github.com/DamonOehlman/interleave/blob/master/CHANGE
 
 - Add [UglifyJS](https://github.com/mishoo/UglifyJS) support
 - Add an `npm://` loader for supported file
-- Checking whether a file has been included previously before loading it again
 - Caching remote includes in a local cache
 
 ## Questions Feedback
