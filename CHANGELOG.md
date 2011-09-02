@@ -4,7 +4,7 @@ Here be the history of Interleave.
 
 ## 0.0.3
 
-* Added support for loading multiple files from a path: `interleave testfiles`
+* Added support for loading multiple files from a path, e.g. `interleave testfiles`
 * Added bitbucket loader
 
 ## 0.0.2
