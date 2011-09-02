@@ -1,0 +1,3 @@
+var inTheSubdir = true;
+
+//= ../parent

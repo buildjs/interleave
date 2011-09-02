@@ -4,7 +4,11 @@ Here be the history of Interleave.
 
 ## 0.0.4
 
-* Added the `none` combiner, which simply passes all input files through, interleaves and writes them out to the output directory.
+* Added the `pass` multihandler, which simply passes all input files through, interleaves and writes them out to the output directory.
+
+* Added aliases and `build.json` configuration file support.
+
+* Tweaked things to using Interleave programmatically is possible.
 
 ## 0.0.3
 

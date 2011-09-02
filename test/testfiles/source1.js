@@ -12,7 +12,7 @@ A test file
 //= http://code.jquery.com/jquery-1.6.2.js
 
 // TEST AN ALIASED INCLUDE
-//= backbone!backbone
+//= backbone!
 
 var TEST = (function() {
     //= lib/test

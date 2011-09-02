@@ -25,11 +25,12 @@ Usage: interleave [options] target1.js [target2.js] ..
 
 Options:
 
-  -h, --help                          output usage information
-  -v, --version                       output the version number
-  -p, --path [path]                   Target output path (default to current directory)
-  -f, --file [file]                   Target output file (default to build.js)
-  -c, --combine [concat|passthrough]  How to combine the various sources files (if multiple are provided)
+  -h, --help                 output usage information
+  -v, --version              output the version number
+  -p, --path [path]          Target output path (default to current directory)
+  -o, --out [outputfile]     Target output file (default to build.js)
+  -m, --multi [concat|pass]  How to combine the various sources files (if multiple are provided), default = concat
+  -c, --config [configfile]  The configuration file to be used for the build, default: ./build.json
 ```
 
 For example, to build the example testfiles provided in the repo, you would run the following:
@@ -60,7 +61,7 @@ var TEST = (function() {
 
 The trailing .js is optional, so `//= lib/test` is just as valid.
 
-#### Github Includes
+### Github Includes
 
 Now one thing I have longed for is the ability to bring in a file directly from github, so I've added support for that.  For instance, the following would bring in [underscore](https://github.com/documentcloud/underscore):
 
@@ -75,15 +76,93 @@ Want a specific version of the library, well if the package maintainer is using 
 //= github://documentcloud/underscore/underscore?1.1.2
 ```
 
-#### HTTP Includes
+### Bitbucket Includes
 
-Behind the scenes, the github include mechanism is simply a wrapper on a standard http includer, so you can also do this:
+Just like Github includes, but for [BitBucket](http://bitbucket.org/):
+
+```js
+//= bitbucket://puffnfresh/roy/src/types
+```
+
+### HTTP Includes
+
+Behind the scenes, the github and bitbucket includes simply wrap a standard http includer, so you can also do this:
 
 ```js
 //= http://code.jquery.com/jquery-1.6.2.js
 ```
 
 Kudos to [Mikeal Rogers](http://twitter.com/#!/mikeal) for his [Request](https://github.com/mikeal/request) package.  It makes this kind of thing so easy...
+
+## Aliases and Build Configurations
+
+Another feature you can use when working with Interleave are __aliases__.  Aliases are a very powerful feature that will allow you to change the location that a particular include is sourced from.  
+
+If you are going to use aliases, you will need to make use of build configurations.  A build configuration can either be specified when doing a programmatic build or by having supplying a JSON configuration file.  By default, Interleave looks for `build.json` in the current working directory.  If found, it will load the configuration information into the executing context.
+
+Consider the following configuration file:
+
+```js
+{
+    "aliases": {
+        "cog": "github://sidelab/cog/cogs/$1",
+        "backbone": "github://documentcloud/backbone/backbone?0.5.0"
+    }
+}
+```
+
+This configuration file defines two aliases, `cog` and `backbone`.  If you have worked with regular expressions in the past the `$1` may catch your eye in the target path.  Essentially, interleave will create an array of regular expressions looking for each of the aliases directly followed by an exclamation mark (!).  For instance, 
+if Interleave finds the following:
+
+```js
+//= cog!jsonp
+```
+
+It in actual fact, sees:
+
+```js
+//= github://sidelab/cog/cogs/jsonp
+```
+
+Which in turn, resolves to [https://raw.github.com/sidelab/cog/master/cogs/jsonp.js](https://raw.github.com/sidelab/cog/master/cogs/jsonp.js).  
+
+Personally, I think this is pretty handy. Take the [backbone](https://github.com/documentcloud/backbone) alias for instance.  You will note that we have included the version in the alias, which means that a request for:
+
+```js
+//= backbone!
+```
+
+Would resolve to a github link specifically targeting the `0.5.0` version of Backbone.  So, when it's time to upgrade our application to the next version of backbone you can simply replace the alias in the configuration file.
+
+## Programmatic Use
+
+One of the things I really liked about sprockets, is how if it's command-line interface wasn't a good fit then I could use a rubygem and get a little more control.  I've tried to replicate this functionality in Interleave.
+
+For instance, here is the `build.js` file from the Sidelab [GeoJS](https://github.com/sidelab/geojs):
+
+```js
+var interleave = require('interleave'),
+    config = {
+        aliases: {
+            cog: 'github://sidelab/cog/cogs/$1'
+        }
+    };
+
+// build each of the builds
+interleave('src/geojs', {
+    multi: 'pass',
+    path: 'lib',
+    config: config
+});
+
+interleave('src/plugins/', {
+    multi: 'pass',
+    path: 'lib/plugins/',
+    config: config
+});
+```
+
+This shows how Interleave can currently be used programmatically, but be aware that I'm probably going to change this around a little (the config being a seperate key in the options seems a little strange looking at it again now).
 
 ## Changelog
 
