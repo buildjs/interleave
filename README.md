@@ -73,8 +73,10 @@ Now one thing I have longed for is the ability to bring in a file directly from 
 Want a specific version of the library, well if the package maintainer is using [git tagging](http://learn.github.com/p/tagging.html) then you can add a version specifier:
 
 ```js
-//= github://documentcloud/underscore/underscore?1.1.2
+//= github://documentcloud/underscore/underscore?v=1.1.2
 ```
+
+__NOTE:__ Version references can be used to access branch trees also...
 
 ### Bitbucket Includes
 
@@ -112,7 +114,7 @@ Consider the following configuration file:
 {
     "aliases": {
         "cog": "github://sidelab/cog/cogs/$1",
-        "backbone": "github://documentcloud/backbone/backbone?0.5.0"
+        "backbone": "github://documentcloud/backbone/backbone?v=0.5.0"
     }
 }
 ```

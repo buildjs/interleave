@@ -2,7 +2,7 @@
 
 Here be the history of Interleave.
 
-## 0.0.5 (Not yet published)
+## 0.0.5 (Published)
 
 * Added `gcode://` loader - `googlecode://` also works...
 * Added support for aliasing local files
