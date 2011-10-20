@@ -2,6 +2,10 @@
 
 Here be the history of Interleave.
 
+## 0.0.8 (Published)
+
+* Fixed error handling for preprocessors
+
 ## 0.0.7 (Published)
 
 * Added preprocessors support
