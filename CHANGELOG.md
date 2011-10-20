@@ -2,6 +2,12 @@
 
 Here be the history of Interleave.
 
+## 0.0.7 (Published)
+
+* Added preprocessors support
+* Added preprocessor: [Stylus](http://learnboost.github.com/stylus/)
+* Added preprocessor: [CoffeeScript](http://coffeescript.org/)
+
 ## 0.0.5 (Published)
 
 * Added `gcode://` loader - `googlecode://` also works...
