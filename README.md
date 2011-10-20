@@ -102,6 +102,46 @@ Behind the scenes, the github and bitbucket includes simply wrap a standard http
 
 Kudos to [Mikeal Rogers](http://twitter.com/#!/mikeal) for his [Request](https://github.com/mikeal/request) package.  It makes this kind of thing so easy...
 
+## Preprocessors
+
+Starting with version `0.0.7` support for preprocessors has been added. By default, interleave reads the contents of a file and then brings it across _as is_ into the target file.  Preprocessors expand on this and can process a file prior to it being included in the combined output file.
+
+It should be noted that __most__ preprocessors are not designed to include files from github and other remote locations so things things like their own flavours of imports, includes, etc are not likely to work.  In your own project you should, however, be able to mix and match things like CSS and Stylus, or JavaScript and CoffeeScript to your hearts content.
+
+The list of currently supported preprocessors is below:
+
+### Stylus
+
+_Expected Extension: `.styl`_
+
+You can either have `.styl` files in your sources directory and these will be converted into `.css` files in the output, or you can have plain old `.css` files in your sources with `.styl` includes:
+
+```css
+body {
+	background: lime; /* everyone loves lime */
+}
+
+/*= github://LearnBoost/stylus/examples/basic.styl */
+```
+
+### CoffeeScript
+
+_Expected Extension: `.coffee`_
+
+Like Stylus and other extensions, CoffeeScript can also be processed as `.coffee` files in your source tree, or alternative through the standard interleave include syntax.  This allows you to mix and match your own 'hand-crafted' JS with CoffeeScript's generated JS:
+
+```js
+function MyCounter() {
+    this.count = 0;
+}
+
+MyClass.prototype.increment = function() {
+    this.count += 1;
+};
+
+//= github://jashkenas/coffee-script/examples/code.coffee
+```
+
 ## Aliases and Build Configurations
 
 Another feature you can use when working with Interleave are __aliases__.  Aliases are a very powerful feature that will allow you to change the location that a particular include is sourced from.  
@@ -141,46 +181,6 @@ Personally, I think this is pretty handy. Take the [backbone](https://github.com
 ```
 
 Would resolve to a github link specifically targeting the `0.5.0` version of Backbone.  So, when it's time to upgrade our application to the next version of backbone you can simply replace the alias in the configuration file.
-
-## Preprocessors
-
-Starting with version `0.0.7` support for preprocessors has been added. By default, interleave reads the contents of a file and then brings it across _as is_ into the target file.  Preprocessors expand on this and can process a file prior to it being included in the combined output file.
-
-It should be noted that __most__ preprocessors are not designed to include files from github and other remote locations so things things like their own flavours of imports, includes, etc are not likely to work.  In your own project you should, however, be able to mix and match things like CSS and Stylus, or JavaScript and CoffeeScript to your hearts content.
-
-The list of currently supported preprocessors is below:
-
-### Stylus
-
-_Expected Extension: `.styl`_
-
-You can either have `.styl` files in your sources directory and these will be converted into `.css` files in the output, or you can have plain old `.css` files in your sources with `.styl` includes:
-
-```css
-body {
-	background: lime; // everyone loves lime
-}
-
-/*= github://LearnBoost/stylus/examples/basic.styl */
-```
-
-### CoffeeScript
-
-_Expected Extension: `.coffee`_
-
-Like Stylus and other extensions, CoffeeScript can also be processed as `.coffee` files in your source tree, or alternative through the standard interleave include syntax.  This allows you to mix and match your own 'hand-crafted' JS with CoffeeScript's generated JS:
-
-```js
-function MyCounter() {
-    this.count = 0;
-}
-
-MyClass.prototype.increment = function() {
-    this.count += 1;
-};
-
-//= github://jashkenas/coffee-script/examples/code.coffee
-```
 
 ## Programmatic Use
 
