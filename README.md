@@ -201,22 +201,18 @@ var interleave = require('interleave'),
         }
     };
     
-// build each of the css files
 interleave(['src/css', 'src/js'], {
     multi: 'pass',
     path: 'dist',
     config: config
 });    
 
-// build each of the css files
 interleave(['src/css/plugins', 'src/js/plugins'], {
     multi: 'pass',
     path: 'dist/plugins',
     config: config
 });
 ```
-
-This shows how Interleave can currently be used programmatically, but be aware that I'm probably going to change this around a little (the config being a seperate key in the options seems a little strange looking at it again now).
 
 ## Changelog
 
