@@ -186,26 +186,32 @@ Would resolve to a github link specifically targeting the `0.5.0` version of Bac
 
 One of the things I really liked about sprockets, is how if it's command-line interface wasn't a good fit then I could use a rubygem and get a little more control.  I've tried to replicate this functionality in Interleave.
 
-For instance, here is the `build.js` file from the Sidelab [GeoJS](https://github.com/sidelab/geojs):
+For instance, here is the `build.js` file from a project called [Pager](https://github.com/DamonOehlman/pager) that I'm working on.
 
 ```js
 var interleave = require('interleave'),
+    fs = require('fs'),
+    path = require('path'),
     config = {
         aliases: {
-            cog: 'github://sidelab/cog/cogs/$1'
+            'eve': 'github://DmitryBaranovskiy/eve/eve.js',
+            'interact': 'github://DamonOehlman/interact/interact.js',
+            'classtweak': 'github://DamonOehlman/classtweak/classtweak.js',
+            'when': 'github://briancavalier/when.js/when.js'
         }
     };
-
-// build each of the builds
-interleave('src/geojs', {
+    
+// build each of the css files
+interleave(['src/css', 'src/js'], {
     multi: 'pass',
-    path: 'lib',
+    path: 'dist',
     config: config
-});
+});    
 
-interleave('src/plugins/', {
+// build each of the css files
+interleave(['src/css/plugins', 'src/js/plugins'], {
     multi: 'pass',
-    path: 'lib/plugins/',
+    path: 'dist/plugins',
     config: config
 });
 ```
