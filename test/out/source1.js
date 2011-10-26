@@ -2,6 +2,8 @@
 A test file
 */
 
+//================== this is a pretty comment, not an include ==================
+
 // TEST A GITHUB INCLUDE
 //     (c) 2010 Jeremy Ashkenas, DocumentCloud Inc.
 //     Underscore is freely distributable under the MIT license.
@@ -723,6 +725,8 @@ A test file
 
 
 // TEST A BITBUCKET INCLUDE
+var _ = require('underscore');
+
 // ## Type variable
 //
 // A type variable represents an parameter with an unknown type or any
@@ -746,7 +750,7 @@ var toChar = function(n) {
 // should be used for the string instead.
 Variable.prototype.toString = function() {
     if(!this.instance) {
-        return "'" + this.id.toString(26).split('').map(function(c) {
+        return "'" + _.map(this.id.toString(26).split(''), function(c) {
             return toChar(parseInt(c, 26));
         }).join('');
     }
@@ -777,10 +781,10 @@ FunctionType.prototype = new BaseType();
 FunctionType.prototype.constructor = FunctionType;
 FunctionType.prototype.name = "Function";
 FunctionType.prototype.map = function(f) {
-    return this.types.map(f);
+    return _.map(this.types, f);
 };
 FunctionType.prototype.toString = function() {
-    typeString = this.types.map(function(type) {
+    typeString = _.map(this.types, function(type) {
         return type.toString();
     }).toString();
     return this.name + "(" + typeString + ")";
@@ -805,10 +809,19 @@ BooleanType.prototype.constructor = BooleanType;
 BooleanType.prototype.name = "Boolean";
 exports.BooleanType = BooleanType;
 
-var ArrayType = function() {};
+var ArrayType = function(type) {
+    this.type = type;
+    this.types = [type];
+};
 ArrayType.prototype = new BaseType();
 ArrayType.prototype.constructor = ArrayType;
 ArrayType.prototype.name = "Array";
+ArrayType.prototype.map = function(f) {
+    return f(this.type);
+};
+ArrayType.prototype.toString = function() {
+    return '[' + this.type.toString() + ']';
+};
 exports.ArrayType = ArrayType;
 
 var ObjectType = function(props) {
@@ -855,7 +868,12 @@ var TagType = function(types) {
 TagType.prototype = new BaseType();
 TagType.prototype.constructor = TagType;
 TagType.prototype.map = function(f) {
-    return this.types.map(f);
+    return _.map(this.types, f);
+};
+TagType.prototype.toString = function() {
+    return _.map(this.types, function(t) {
+        return t.toString();
+    }).join(' ');
 };
 exports.TagType = TagType;
 

@@ -2,6 +2,8 @@
 A test file
 */
 
+//================== this is a pretty comment, not an include ==================
+
 // TEST A GITHUB INCLUDE
 //= github://documentcloud/underscore/underscore?1.1.2
 
