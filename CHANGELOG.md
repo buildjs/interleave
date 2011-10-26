@@ -5,6 +5,8 @@ Here be the history of Interleave.
 ## 0.0.9 (In Development)
 
 * Experimental support for [dr.js](https://github.com/DmitryBaranovskiy/dr.js)
+* Fix issue where pretty comments using multiple equals were being interpreted as an include
+* Fix issue where includes were quoted
 
 ## 0.0.8 (Published)
 
