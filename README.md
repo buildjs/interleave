@@ -49,9 +49,19 @@ interleave testfiles
 
 ## Include Patterns
 
-An include pattern follows the same convention as [Sprockets](http://getsprockets.com/) and is a single-line comment with an equal sign straight after the two slashes: `//=`.
+An include pattern follows the same convention as [Sprockets](http://getsprockets.com/) and is a single-line comment with an equal sign straight after the two slashes: `//=` followed by some whitespace, and then the file to include, e.g.
 
-Unlike sprockets though interleave adopts a url like format for including files.  For instance, to include a file relative to the current file you would simply add a comment line like so:
+```js
+//= file/to/include.js
+```
+
+In sockets, apparently you can exclude the whitespace, but with interleave this is required.  So the following include __would not work__:
+
+```js
+//=file/to/include.js
+```
+
+Interleave also adopts a url like format for including files.  For instance, to include a file relative to the current file you would simply add a comment line like so:
 
 ```js
 var TEST = (function() {
