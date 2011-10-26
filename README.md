@@ -55,7 +55,7 @@ An include pattern follows the same convention as [Sprockets](http://getsprocket
 //= file/to/include.js
 ```
 
-In sockets, apparently you can exclude the whitespace, but with interleave this is required.  So the following include __would not work__:
+In sockets, apparently you can exclude the whitespace, but with interleave __the whitespace is required__.  So the following include __would not work__:
 
 ```js
 //=file/to/include.js
