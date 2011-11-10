@@ -16,7 +16,7 @@ Give it a try, and let me know what you think.  If it doesn't do what you need, 
 
 Install using npm:
 
-`npm install interleave`
+`npm install -g interleave`
 
 ## Usage
 
