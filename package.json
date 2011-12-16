@@ -15,9 +15,10 @@
   },
   "dependencies": {
     "async": "0.1.x",
-    "commander": "0.3.x",
+    "commander": ">= 0.3.3",
+    "debug": ">= 0.1.0",
+    "out": "*",
     "request": "2.x.x",
-    "colors": "0.5.x"
   },
   "devDependencies": {
     "vows": "0.5.x"
