@@ -1,7 +1,7 @@
 {
     "title" :             "Interleave",
     "content_file" :      "README.md",
-    "include_index" :     false,
+    "include_index" :     true,
     "docco_files" :       [
         "lib/*.js"
     ],

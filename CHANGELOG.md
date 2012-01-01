@@ -2,6 +2,11 @@
 
 Here be the history of Interleave.
 
+## 0.1.0
+
+- Refactored preprocessor integration to allow simpler preprocessor creation
+- Added support for Roy preprocessor
+
 ## 0.0.9 (In Development)
 
 * Experimental support for [dr.js](https://github.com/DmitryBaranovskiy/dr.js)
