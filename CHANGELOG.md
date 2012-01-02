@@ -6,6 +6,8 @@ Here be the history of Interleave.
 
 - Refactored preprocessor integration to allow simpler preprocessor creation
 - Added support for Roy preprocessor
+- Default combiner switch to `pass` rather than `concat`
+- Add postprocessors support, with initial postprocessor of uglify-js enabled
 
 ## 0.0.9 (In Development)
 

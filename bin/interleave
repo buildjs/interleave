@@ -11,6 +11,7 @@ function progInit() {
 	program.option('-o, --out [outputfile]', 'Target output file (default to build.js)');
 	program.option('-m, --multi [concat|pass]', 'How to combine the various sources files (if multiple are provided), default = concat');
 	program.option('-c, --config [configfile]', 'The configuration file to be used for the build, default: ./build.json');
+	program.option('-a, --after [processors]', 'The list of post processors that should be run after interleaving the input files');
 	program.parse(process.argv);
 	
 	var interleaver = interleave(program.args, program);

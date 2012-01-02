@@ -11,6 +11,7 @@ fs.readFile(path.resolve(__dirname, 'build.json'), function(err, data) {
         interleave(targetFiles, {
             multi: 'pass',
             basedir: __dirname,
+            after: ['uglify'],
             path: path.resolve(__dirname, 'out'),
             config: config
         });
