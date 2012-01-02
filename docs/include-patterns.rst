@@ -1,3 +1,5 @@
+.. _include patterns:
+
 Include Patterns
 ================
 
@@ -9,7 +11,9 @@ In sockets, apparently you can exclude the whitespace, but with interleave **the
 
 	//=file/to/include.js
 
-Interleave also adopts a url like format for including files.  For instance, to include a file relative to the current file you would simply add a comment line like so::
+Interleave also adopts a url like format for including files.  For instance, to include a file relative to the current file you would simply add a comment line like so:
+
+.. code-block:: javascript
 
 	var TEST = (function() {
 	    //= lib/test.js
@@ -28,7 +32,7 @@ Want a specific version of the library, well if the package maintainer is using 
 
 	//= github://documentcloud/underscore/underscore?v=1.1.2
 
-__NOTE:__ Version references can be used to access branch trees also...
+**NOTE:** Version references can be used to access branch trees also...
 
 Bitbucket Includes
 ------------------

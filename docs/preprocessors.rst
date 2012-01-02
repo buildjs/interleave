@@ -8,18 +8,20 @@ Currently supported preprocessors are described below.  It should also be noted 
 CoffeeScript
 ------------
 
-_Expected Extension: `.coffee`_
+``.coffee``
 
-The CoffeeScript preprocessor allows you to mix and match your own 'hand-crafted' JS with CoffeeScript's generated JS::
+The CoffeeScript preprocessor allows you to mix and match your own 'hand-crafted' JS with CoffeeScript's generated JS.
+
+.. code-block:: javascript
 
 	function MyCounter() {
 	    this.count = 0;
 	}
-
+	
 	MyClass.prototype.increment = function() {
 	    this.count += 1;
 	};
-
+	
 	//= github://jashkenas/coffee-script/examples/code.coffee
 
 Additionally, any `.coffee` files in your specified input files will be converted into appropriate `.js` versions.
@@ -27,17 +29,19 @@ Additionally, any `.coffee` files in your specified input files will be converte
 Roy
 ---
 
-_Expected Extension: `.roy`_
+``.roy``
 
 Stylus
 ------
 
-_Expected Extension: `.styl`_
+``.styl``
 
-You can either have `.styl` files in your sources directory and these will be converted into `.css` files in the output, or you can have plain old `.css` files in your sources with `.styl` includes::
+You can either have `.styl` files in your sources directory and these will be converted into `.css` files in the output, or you can have plain old `.css` files in your sources with `.styl` includes:
+
+.. code-block:: css
 
 	body {
 		background: lime; /* everyone loves lime */
 	}
-
+	
 	/*= github://LearnBoost/stylus/examples/basic.styl */
