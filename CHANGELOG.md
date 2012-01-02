@@ -11,6 +11,7 @@ Here be the history of Interleave.
 - Removed the concept of specifying an output file, only the target path matters now.
 - By default files are written to a `dist` folder rather than the cwd.
 - `--multi` option removed, and replaced with a `--concat` option if concatentation is desired.
+- added `--watch` option to watch files for changes and automatically recompile.
 
 ## 0.0.9 (In Development)
 

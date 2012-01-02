@@ -80,6 +80,7 @@ See [CHANGELOG.md](https://github.com/DamonOehlman/interleave/blob/master/CHANGE
 
 ## To Do
 
+- Add real tests instead of just an example
 - Add an `npm://` loader for supported file
 - Caching remote includes in a local cache
 
