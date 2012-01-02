@@ -50,6 +50,14 @@ Interleave also supports some url-esque include formats for including remote fil
 
 ## Additional Information
 
+### Watching for Changes
+
+You can also ask interleave to watch your sourcefile for changes and only compile files when it does detect a change.  This is done by supplying the `--watch` option:
+
+```
+interleave src --watch
+```
+
 ### Pre-processors
 
 Pre-processors provide a mechanism to integrate languages such as [CoffeeScript](http://coffeescript.org) and [Roy](http://roy.brianmckenna.org/) into your JS build process.  Additionally, if you are using Interleave to process CSS files, CSS preprocessors such as [Stylus](http://learnboost.github.com/stylus/) into the mix also.

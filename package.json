@@ -17,6 +17,7 @@
     "async": "0.1.x",
     "commander": ">= 0.3.3",
     "debug": ">= 0.1.0",
+    "hash_file": "*",
     "out": "*",
     "mkdirp": ">= 0.2.1",
     "request": "2.x.x"
