@@ -8,6 +8,9 @@ Here be the history of Interleave.
 - Added support for Roy preprocessor
 - Default combiner switch to `pass` rather than `concat`
 - Add postprocessors support, with initial postprocessor of uglify-js enabled
+- Removed the concept of specifying an output file, only the target path matters now.
+- By default files are written to a `dist` folder rather than the cwd.
+- `--multi` option removed, and replaced with a `--concat` option if concatentation is desired.
 
 ## 0.0.9 (In Development)
 

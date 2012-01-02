@@ -9,10 +9,7 @@ fs.readFile(path.resolve(__dirname, 'build.json'), function(err, data) {
         var targetFiles = files.map(function(file) { return 'testfiles/' + file; });
         
         interleave(targetFiles, {
-            multi: 'pass',
-            basedir: __dirname,
             after: ['uglify'],
-            path: path.resolve(__dirname, 'out'),
             config: config
         });
     });

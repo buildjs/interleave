@@ -8,10 +8,9 @@ var interleave = require('../lib/interleave'),
 function progInit() {
 	program.usage('[options] target1.js [target2.js] ..');
 	program.option('-p, --path [path]', 'Target output path (default to current directory)');
-	program.option('-o, --out [outputfile]', 'Target output file (default to build.js)');
-	program.option('-m, --multi [concat|pass]', 'How to combine the various sources files (if multiple are provided), default = concat');
 	program.option('-c, --config [configfile]', 'The configuration file to be used for the build, default: ./build.json');
 	program.option('-a, --after [processors]', 'The list of post processors that should be run after interleaving the input files');
+	program.option('--concat', 'Flag that the output files should be concatenated into a single dist.js file');
 	program.parse(process.argv);
 	
 	var interleaver = interleave(program.args, program);

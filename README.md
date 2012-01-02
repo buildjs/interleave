@@ -1,16 +1,6 @@
 # Interleave
 
-I've used a few JS build tools over the last little while, and while using shell script or ANT projects to simply concatenate a number of files together into a single JS file works for some, it's [not something that I'm that content with](http://www.distractable.net/coding/javascript-builds-beyond-concatenation).
-
-Mostly I've been using [Sprockets](https://github.com/sstephenson/sprockets) which I quite like, but it's written in Ruby and while Ruby is good, I really think I should be able to build my JS libraries using pure JavaScript ([Node.js](http://nodejs.org) in this particular case).
-
-Also, I've had a tinker with [Sam Stephenson's](https://github.com/sstephenson) next JavaScript build tool, [Stitch](https://github.com/sstephenson/stitch) and while it's excellent I feel it is geared towards application dev rather than JS library development.
-
-Also in the same space as Stitch (but approaching things from a different angle), we have [Ender](https://github.com/ender-js/Ender) which is another very interesting strategy for JS builds. 
-
-So where does Interleave fit in?  Interleave attempts to provide tooling for creating JavaScript libraries, whereas Ender and Stitch both focus more on the application development space (IMO).  
-
-Give it a try, and let me know what you think.  If it doesn't do what you need, then you definitely want to give one of the options mentioned above a go.
+Interleave is a tool that helps you organise your JS in a [beyond concatenation](http://www.distractable.net/coding/javascript-builds-beyond-concatenation) way.  It allows you to not only include files from your local file system, but remotely from [Github](http://github.com/), [Bitbucket](http://bitbucket.org) (and other) online sources.
 
 ## Installation
 
@@ -20,173 +10,69 @@ Install using npm:
 
 ## Usage
 
-```
-Usage: interleave [options] target1.js [target2.js] ..
-
-Options:
-
-  -h, --help                 output usage information
-  -V, --version              output the version number
-  -p, --path [path]          Target output path (default to current directory)
-  -o, --out [outputfile]     Target output file (default to build.js)
-  -m, --multi [concat|pass]  How to combine the various sources files (if multiple are provided), default = concat
-  -c, --config [configfile]  The configuration file to be used for the build, default: ./build.json
-```
-
-For example, to build the example testfiles provided in the repo, you would run the following:
+Interleave is designed as a command-line tool, but also supports [programmatic use](https://github.com/DamonOehlman/interleave/wiki/Programmatic+Use).  In the simplest case, where you have a single input file to be processed you would probably run:
 
 ```
-interleave testfiles/source1.js testfiles/source2.js
+interleave src/main.js
 ```
 
-Interleave will then look for include patterns (see below) in each of the files and attempt to include files based on what it finds.
+This would parse the `main.js` file in the `src` folder and generate a `main.js` in a `dist` folder.  If the dist folder does not exist, then it will be automatically created.
 
-You can also tell interleave to load all the files in a particular path (or multiple paths):
+Alternatively you can also call interleave and just specify that you want it to process the `src` directory.  In this case, each of the files (_not recursive_) in the `src` folder would be processed individually and pushed to the `dist` folder.
 
-```
-interleave testfiles
-```
+### Command Line Switches
+
+Interleave supports a number of command-line switches which can be viewed by running `interleave --help`
 
 ## Include Patterns
 
-An include pattern follows the same convention as [Sprockets](http://getsprockets.com/) and is a single-line comment with an equal sign straight after the two slashes: `//=` followed by some whitespace, and then the file to include, e.g.
+Include statements in interleave are similar (see the [wiki](https://github.com/DamonOehlman/interleave/wiki/Include+Patterns) for more detailed info) to those used in [Sprockets](http://getsprockets.com/).  An include request for instance is a single-line comment with an equal sign __straight after__ the two slashes: `//=` __followed by some whitespace__, and then the file to include:
 
 ```js
 //= file/to/include.js
 ```
 
-In sockets, apparently you can exclude the whitespace, but with interleave __the whitespace is required__.  So the following include __would not work__:
+The extension is not required, so the following is also valid:
 
 ```js
-//=file/to/include.js
+//= file/to/include
 ```
 
-Interleave also adopts a url like format for including files.  For instance, to include a file relative to the current file you would simply add a comment line like so:
-
-```js
-var TEST = (function() {
-    //= lib/test.js
-})();
-```
-
-The trailing .js is optional, so `//= lib/test` is just as valid.
-
-### Github Includes
-
-Now one thing I have longed for is the ability to bring in a file directly from github, so I've added support for that.  For instance, the following would bring in [underscore](https://github.com/documentcloud/underscore):
-
+Interleave also supports some url-esque include formats for including remote files.  These are covered in more detail in the [wiki](https://github.com/DamonOehlman/interleave/wiki/Include+Patterns).  In summary though, all the of the following are valid:
 
 ```js
 //= github://documentcloud/underscore/underscore
-```
-
-Want a specific version of the library, well if the package maintainer is using [git tagging](http://learn.github.com/p/tagging.html) then you can add a version specifier:
-
-```js
 //= github://documentcloud/underscore/underscore?v=1.1.2
-```
-
-__NOTE:__ Version references can be used to access branch trees also...
-
-### Bitbucket Includes
-
-Just like Github includes, but for [BitBucket](http://bitbucket.org/):
-
-```js
 //= bitbucket://puffnfresh/roy/src/types
-```
-
-### Googlecode Includes
-
-```js
 //= gcode://glmatrix/hg/glMatrix
-```
-
-### HTTP Includes
-
-Behind the scenes, the github and bitbucket includes simply wrap a standard http includer, so you can also do this:
-
-```js
 //= http://code.jquery.com/jquery-1.6.2.js
-```
-
-Kudos to [Mikeal Rogers](http://twitter.com/#!/mikeal) for his [Request](https://github.com/mikeal/request) package.  It makes this kind of thing so easy...
-
-## Aliases and Build Configurations
-
-Another feature you can use when working with Interleave are __aliases__.  Aliases are a very powerful feature that will allow you to change the location that a particular include is sourced from.  
-
-If you are going to use aliases, you will need to make use of build configurations.  A build configuration can either be specified when doing a programmatic build or by having supplying a JSON configuration file.  By default, Interleave looks for `build.json` in the current working directory.  If found, it will load the configuration information into the executing context.
-
-Consider the following configuration file:
-
-```js
-{
-    "aliases": {
-        "cog": "github://sidelab/cog/cogs/$1",
-        "backbone": "github://documentcloud/backbone/backbone?v=0.5.0"
-    }
-}
-```
-
-This configuration file defines two aliases, `cog` and `backbone`.  If you have worked with regular expressions in the past the `$1` may catch your eye in the target path.  Essentially, interleave will create an array of regular expressions looking for each of the aliases directly followed by an exclamation mark (!).  For instance, 
-if Interleave finds the following:
-
-```js
-//= cog!jsonp
-```
-
-It in actual fact, sees:
-
-```js
-//= github://sidelab/cog/cogs/jsonp
-```
-
-Which in turn, resolves to [https://raw.github.com/sidelab/cog/master/cogs/jsonp.js](https://raw.github.com/sidelab/cog/master/cogs/jsonp.js).  
-
-Personally, I think this is pretty handy. Take the [backbone](https://github.com/documentcloud/backbone) alias for instance.  You will note that we have included the version in the alias, which means that a request for:
-
-```js
-//= backbone!
-```
-
-Would resolve to a github link specifically targeting the `0.5.0` version of Backbone.  So, when it's time to upgrade our application to the next version of backbone you can simply replace the alias in the configuration file.
-
-## Programmatic Use
-
-One of the things I really liked about sprockets, is how if it's command-line interface wasn't a good fit then I could use a rubygem and get a little more control.  I've tried to replicate this functionality in Interleave.
-
-For instance, here is the `build.js` file from a project called [Pager](https://github.com/DamonOehlman/pager) that I'm working on.
-
-```js
-var interleave = require('interleave'),
-    fs = require('fs'),
-    path = require('path'),
-    config = {
-        aliases: {
-            'eve': 'github://DmitryBaranovskiy/eve/eve.js',
-            'interact': 'github://DamonOehlman/interact/interact.js',
-            'classtweak': 'github://DamonOehlman/classtweak/classtweak.js',
-            'when': 'github://briancavalier/when.js/when.js'
-        }
-    };
-    
-interleave(['src/css', 'src/js'], {
-    multi: 'pass',
-    path: 'dist',
-    config: config
-});    
-
-interleave(['src/css/plugins', 'src/js/plugins'], {
-    multi: 'pass',
-    path: 'dist/plugins',
-    config: config
-});
 ```
 
 ## Additional Information
 
-- [Preprocessors](https://github.com/DamonOehlman/interleave/wiki/Preprocessors)
+### Pre-processors
+
+Pre-processors provide a mechanism to integrate languages such as [CoffeeScript](http://coffeescript.org) and [Roy](http://roy.brianmckenna.org/) into your JS build process.  Additionally, if you are using Interleave to process CSS files, CSS preprocessors such as [Stylus](http://learnboost.github.com/stylus/) into the mix also.
+
+More information on preprocessors can be found in the [wiki](https://github.com/DamonOehlman/interleave/wiki/Preprocessors).
+
+### Post-processors
+
+Post-processors unsurprisingly do the opposite to a pre-processor.  They perform operations on the resulting JS and CSS files generated from Interleave.  Probably the most common use is to pack or minify your JS, and at present [Uglify](https://github.com/mishoo/UglifyJS) is supported for packing.
+
+More information on post-processors can be find in the [wiki](https://github.com/DamonOehlman/interleave/wiki/Postprocessors)
+
+### Aliases
+
+Another feature you can use when working with Interleave are __aliases__.  Aliases are a very powerful feature that will allow you to change the location that a particular include is sourced from. 
+
+For more information on aliases see the [wiki](https://github.com/DamonOehlman/interleave/wiki/Aliases)
+
+### Build Configurations
+
+Often used to specify alias definitions, a `build.json` file can be a useful inclusion in your project, and can save having to remember a number of command-line options that are required for particular project builds.
+
+For more information on build configurations see the [wiki](https://github.com/DamonOehlman/interleave/wiki/Build+Configurations)
 
 ## Changelog
 
@@ -194,7 +80,6 @@ See [CHANGELOG.md](https://github.com/DamonOehlman/interleave/blob/master/CHANGE
 
 ## To Do
 
-- Add [UglifyJS](https://github.com/mishoo/UglifyJS) support
 - Add an `npm://` loader for supported file
 - Caching remote includes in a local cache
 
