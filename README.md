@@ -1,16 +1,16 @@
 # Interleave
 
-Interleave is a tool that helps you organise your JS in a [beyond concatenation](http://www.distractable.net/coding/javascript-builds-beyond-concatenation) way.  It allows you to not only include files from your local file system, but remotely from [Github](http://github.com/), [Bitbucket](http://bitbucket.org) (and other) online sources.
+Interleave is a tool that helps you organise and "compile" your JS in a [beyond concatenation](http://www.distractable.net/coding/javascript-builds-beyond-concatenation) way.  It allows you to not only include files from your local file system, but remotely from [Github](http://github.com/), [Bitbucket](http://bitbucket.org) (and other) online sources.
 
 ## Installation
 
-Install using npm:
+Install using [npm](http://npmjs.org/):
 
 `npm install -g interleave`
 
 ## Usage
 
-Interleave is designed as a command-line tool, but also supports [programmatic use](https://github.com/DamonOehlman/interleave/wiki/Programmatic+Use).  In the simplest case, where you have a single input file to be processed you would probably run:
+Interleave is designed as a command-line tool, but also supports [programmatic use](https://github.com/DamonOehlman/interleave/wiki/Programmatic-Use).  In the simplest case, where you have a single input file to be processed you would probably run:
 
 ```
 interleave src/main.js
@@ -26,7 +26,7 @@ Interleave supports a number of command-line switches which can be viewed by run
 
 ## Include Patterns
 
-Include statements in interleave are similar (see the [wiki](https://github.com/DamonOehlman/interleave/wiki/Include+Patterns) for more detailed info) to those used in [Sprockets](http://getsprockets.com/).  An include request for instance is a single-line comment with an equal sign __straight after__ the two slashes: `//=` __followed by some whitespace__, and then the file to include:
+Include statements in interleave are similar (see the [wiki](https://github.com/DamonOehlman/interleave/wiki/Include-Patterns) for more detailed info) to those used in [Sprockets](http://getsprockets.com/).  An include request for instance is a single-line comment with an equal sign __straight after__ the two slashes: `//=` __followed by some whitespace__, and then the file to include:
 
 ```js
 //= file/to/include.js
@@ -38,7 +38,7 @@ The extension is not required, so the following is also valid:
 //= file/to/include
 ```
 
-Interleave also supports some url-esque include formats for including remote files.  These are covered in more detail in the [wiki](https://github.com/DamonOehlman/interleave/wiki/Include+Patterns).  In summary though, all the of the following are valid:
+Interleave also supports some url-esque include formats for including remote files.  These are covered in more detail in the [wiki](https://github.com/DamonOehlman/interleave/wiki/Include-Patterns).  In summary though, all the of the following are valid:
 
 ```js
 //= github://documentcloud/underscore/underscore
@@ -72,7 +72,7 @@ For more information on aliases see the [wiki](https://github.com/DamonOehlman/i
 
 Often used to specify alias definitions, a `build.json` file can be a useful inclusion in your project, and can save having to remember a number of command-line options that are required for particular project builds.
 
-For more information on build configurations see the [wiki](https://github.com/DamonOehlman/interleave/wiki/Build+Configurations)
+For more information on build configurations see the [wiki](https://github.com/DamonOehlman/interleave/wiki/Build-Configurations)
 
 ## Changelog
 
