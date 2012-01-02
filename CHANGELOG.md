@@ -2,6 +2,10 @@
 
 Here be the history of Interleave.
 
+## 0.1.1
+
+- Reinstated the `--output` option.
+
 ## 0.1.0
 
 - Refactored preprocessor integration to allow simpler preprocessor creation

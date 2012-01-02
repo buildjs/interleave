@@ -1,0 +1,13 @@
+.. _beyond concatenation: http://www.distractable.net/coding/javascript-builds-beyond-concatenation
+.. _npm: http://npmjs.org/
+.. _Sprockets: http://getsprockets.com/
+.. _underscore: https://github.com/documentcloud/underscore
+.. _git tagging: http://learn.github.com/p/tagging.html
+.. _Mikeal Rogers: http://twitter.com/#!/mikeal
+.. _Request: https://github.com/mikeal/request
+.. _Github: http://github.com/
+.. _BitBucket: http://bitbucket.org/
+.. _Pager: https://github.com/DamonOehlman/pager
+.. _Uglify: https://github.com/mishoo/UglifyJS
+.. _MIT: http://www.opensource.org/licenses/mit-license.php
+.. _issue: https://github.com/DamonOehlman/interleave/issues
