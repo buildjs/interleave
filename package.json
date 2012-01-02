@@ -1,9 +1,11 @@
 {
   "name": "interleave",
-  "description": "Clientside JS build tool",
+  "description": "Pure JavaScript build tool with ability to download deps",
   "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
   "tags": [
-    "build"
+    "build",
+    "github",
+    "bitbucket"
   ],
   "version": "0.1.0",
   "main": "index.js",
