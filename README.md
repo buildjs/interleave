@@ -1,4 +1,4 @@
-# Interleave
+<img src="https://github.com/DamonOehlman/interleave/raw/master/assets/interleave-logo.png " title="Interleave" />
 
 Interleave is a tool that helps you organise and "compile" your JS in a [beyond concatenation](http://www.distractable.net/coding/javascript-builds-beyond-concatenation) way.  It allows you to not only include files from your local file system, but remotely from [Github](http://github.com/), [Bitbucket](http://bitbucket.org) (and other) online sources.
 
