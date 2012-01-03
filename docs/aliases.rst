@@ -8,7 +8,9 @@ configuration can either be specified when doing a programmatic build or by havi
 By default, Interleave looks for `build.json` in the current working directory.  If found, it will load the 
 configuration information into the executing context.
 
-Consider the following configuration file::
+Consider the following configuration file:
+
+.. code-block::javascript
 
 	{
 	    "aliases": {

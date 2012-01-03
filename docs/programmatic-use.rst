@@ -3,7 +3,9 @@ Programmatic Use
 
 One of the things I really liked about sprockets, is how if it's command-line interface wasn't a good fit then I could use a rubygem and get a little more control.  I've tried to replicate this functionality in Interleave.
 
-For instance, here is the build.js file from a project called `Pager`_ that I'm working on::
+For instance, here is the build.js file from a project called `Pager`_ that I'm working on
+
+.. code-block:: javascript
 
 	var interleave = require('interleave'),
 	    fs = require('fs'),

@@ -34,5 +34,11 @@
   "bugs": {
     "url": "http://github.com/DamonOehlman/interleave/issues"
   },
+  
+  "scripts": { 
+      "test": "mocha --reporter spec -t 3000",
+      "doc": "rm -r docs/_build && sphinx-build docs docs/_build"
+  },
+  
   "contributors": []
 }
