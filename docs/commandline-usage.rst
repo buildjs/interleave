@@ -1,7 +1,7 @@
 Command Line Usage
 ==================
 
-Interleave is designed as a command-line tool, but also supports [programmatic use](https://github.com/DamonOehlman/interleave/wiki/Programmatic-Use).  In the simplest case, where you have a single input file to be processed you would probably run::
+Interleave is designed as a command-line tool, but also supports :ref:`programmatic-use`.  In the simplest case, where you have a single input file to be processed you would probably run::
 
 	interleave src/main.js
 

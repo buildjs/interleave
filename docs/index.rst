@@ -1,12 +1,8 @@
+==========
 Interleave
-##########
-
-.. image:: ../assets/interleave-logo.png
+==========
 
 Interleave is a tool that helps you organise and build your JS in a `beyond concatenation`_ way.  It allows you to not only include files from your local file system, but remotely from `Github`_, `Bitbucket`_ (and other) online sources.
-
-Topics
-======
 
 .. toctree::
 	:maxdepth: 2
