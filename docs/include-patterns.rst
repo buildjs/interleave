@@ -1,3 +1,5 @@
+.. highlight:: javascript
+
 .. _include patterns:
 
 Include Patterns
@@ -11,9 +13,7 @@ In sockets, apparently you can exclude the whitespace, but with interleave **the
 
 	//=file/to/include.js
 
-Interleave also adopts a url like format for including files.  For instance, to include a file relative to the current file you would simply add a comment line like so:
-
-.. code-block:: javascript
+Interleave also adopts a url like format for including files.  For instance, to include a file relative to the current file you would simply add a comment line like so::
 
 	var TEST = (function() {
 	    //= lib/test.js
