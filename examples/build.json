@@ -1,7 +1,0 @@
-{
-    "aliases": {
-        "cog": "github://sidelab/cog/cogs/$1",
-        "backbone": "github://documentcloud/backbone/backbone?0.5.0",
-        "test": "testfiles/lib/subdir/aliastest"
-    }
-}
