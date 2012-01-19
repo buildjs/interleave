@@ -5,6 +5,7 @@ Here be the history of Interleave.
 ## 0.1.1
 
 - Reinstated the `--output` option.
+- Automatically add $1 in the alias if not specified and alias has a trailing slash
 
 ## 0.1.0
 
