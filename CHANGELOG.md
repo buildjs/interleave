@@ -2,6 +2,10 @@
 
 Here be the history of Interleave.
 
+## 0.1.2
+
+- Added plugin implementation (`//~`)
+
 ## 0.1.1
 
 - Reinstated the `--output` option.

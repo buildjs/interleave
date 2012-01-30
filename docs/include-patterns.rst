@@ -58,4 +58,9 @@ Behind the scenes, the github and bitbucket includes simply wrap a standard http
 
 Kudos to `Mikeal Rogers`_ for his `Request`_ package.  It makes this kind of thing so easy...
 
+Plugins
+-------
+
+To be completed.
+
 .. include:: links.txt

@@ -40,8 +40,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Interleave'
-copyright = u'2012, Damon Oehlman'
+project = u'interleave'
+copyright = u'2012, Damon Oehlman <damon.oehlman@sidelab.com>'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
