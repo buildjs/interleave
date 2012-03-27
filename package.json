@@ -23,7 +23,7 @@
     "out": "*",
     "mkdirp": ">= 0.2.1",
     "request": "2.x.x"
-  },
+ },
 
   "devDependencies": {
   },
