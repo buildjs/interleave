@@ -2,9 +2,11 @@
 
 .. _packaging:
 
-=========
-Packaging
-=========
+===================
+Packaging Libraries
+===================
+
+You can run interleave in packaging mode by using the ``--package`` flag.  Why should you consider doing this?  Well, read on...
 
 The way we build JS application is changing, and while I'm still very much a fan of precompiling assets into a single JS file for a production release, the `AMD <https://github.com/amdjs>`_ movement is definitely challenging my thinking.
 
