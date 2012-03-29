@@ -10,6 +10,7 @@ Interleave is a tool that helps you organise and build your JS in a `beyond conc
 	getting-started
 	commandline-usage
 	include-patterns
+	packaging
 	preprocessors
 	postprocessors
 	aliases
