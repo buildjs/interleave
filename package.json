@@ -18,11 +18,14 @@
   "dependencies": {
     "async": "0.1.x",
     "commander": ">= 0.3.3",
-    "debug": ">= 0.1.0",
+    "formatter": "0.0.x",
+    "debug": "*",
     "hash_file": "*",
+    "jshint": "0.6.x",
     "out": "*",
     "mkdirp": ">= 0.2.1",
-    "request": "2.x.x"
+    "request": "2.x.x",
+    "uglify-js": "1.2.x"
  },
 
   "devDependencies": {
