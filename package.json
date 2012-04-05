@@ -7,7 +7,7 @@
     "github",
     "bitbucket"
   ],
-  "version": "0.3.0",
+  "version": "0.3.1",
   "main": "index.js",
   "bin": {
     "interleave": "./bin/interleave"
@@ -26,11 +26,8 @@
     "mkdirp": ">= 0.2.1",
     "request": "2.x.x",
     "uglify-js": "1.2.x"
- },
-
-  "devDependencies": {
   },
-
+  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git://github.com/DamonOehlman/interleave.git"
@@ -38,11 +35,10 @@
   "bugs": {
     "url": "http://github.com/DamonOehlman/interleave/issues"
   },
-  
-  "scripts": { 
-      "test": "mocha --reporter spec -t 3000",
-      "doc": "rm -r docs/_build && sphinx-build docs docs/_build"
+  "scripts": {
+    "test": "mocha --reporter spec -t 3000",
+    "doc": "rm -r docs/_build && sphinx-build docs docs/_build"
   },
-  
-  "contributors": []
+  "contributors": [],
+  "optionalDependencies": {}
 }
