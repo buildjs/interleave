@@ -6,15 +6,17 @@ var interleave = require('../lib/interleave'),
 	program = require('commander');
 	
 function progInit() {
-	program.usage('[options] target1.js [target2.js] ..');
-	program.option('-p, --path [path]', 'Target output path (default to current directory)');
-	program.option('-a, --after [processors]', 'The list of post processors that should be run after interleaving the input files');
-	program.option('-o, --output [targetFile]', 'The target file that will be written to if concatenating (default: dist.js)');
-	program.option('--flags <flags>', 'Define flags that will be recognised within @if macros');
-	program.option('--concat', 'Flag that the output files should be concatenated into a single dist.js file');
-	program.option('--package', 'Set this flag to package the built files into amd, cjs, etc variants in the packages path');
-	program.option('--watch', 'Watch files for changes and automatically recompile');
-	program.parse(process.argv);
+	program
+	    .usage('[options] target1.js [target2.js] ..')
+	    .option('-p, --path [path]', 'Target output path (default to current directory)')
+	    .option('-a, --after [processors]', 'The list of post processors that should be run after interleaving the input files')
+	    .option('-o, --output [targetFile]', 'The target file that will be written to if concatenating (default: dist.js)')
+	    .option('--flags <flags>', 'Define flags that will be recognised within @if macros')
+	    .option('--concat', 'Flag that the output files should be concatenated into a single dist.js file')
+	    .option('--package', 'Set this flag to package the built files into amd, cjs, etc variants in the packages path')
+	    .option('--lint', 'Run JSHint on the generated files')
+	    .option('--watch', 'Watch files for changes and automatically recompile')
+	    .parse(process.argv);
 	
 	var interleaver = interleave(program.args, program);
 	if (typeof interleaver == 'string') {
