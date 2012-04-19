@@ -24,7 +24,7 @@
     "jshint": "0.6.x",
     "out": "*",
     "mkdirp": ">= 0.2.1",
-    "request": "2.x.x",
+    "rigger": "0.2.x",
     "uglify-js": "1.2.x"
   },
   "devDependencies": {},
