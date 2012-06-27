@@ -7,7 +7,7 @@
     "github",
     "bitbucket"
   ],
-  "version": "0.4.2",
+  "version": "0.4.3",
   "main": "index.js",
   "bin": {
     "interleave": "./bin/interleave"
