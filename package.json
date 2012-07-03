@@ -18,6 +18,7 @@
   "dependencies": {
     "async": "0.1.x",
     "commander": ">= 0.3.3",
+    "findme": "0.0.x",
     "formatter": "0.1.x",
     "debug": "*",
     "hash_file": "*",
