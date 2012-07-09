@@ -1,5 +1,6 @@
 
-var _ = require('underscore');
+var _ = require('underscore'),
+    matchme = require('matchme');
 
 var simple = {};
 

@@ -1,5 +1,5 @@
 
-define('simple', ['underscore'], function(_) {
+define('simple', ['underscore', 'matchme'], function(_, matchme) {
     var simple = {};
 
     _.extend(simple, {

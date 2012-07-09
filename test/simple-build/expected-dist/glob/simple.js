@@ -1,5 +1,5 @@
 
-// req: underscore as _
+// req: underscore as _,matchme
 
 (function(glob) {
     var simple = {};
