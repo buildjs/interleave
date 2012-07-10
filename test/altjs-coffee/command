@@ -1,1 +1,1 @@
-../../bin/interleave build src/*.coffee
+../../bin/interleave build src/*.coffee --allow-install
