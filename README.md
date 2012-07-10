@@ -34,6 +34,18 @@ I started Interleave some time ago, taking inspiration from [Sprockets](https://
 
 By default, Interleave will take your input files, rig in specified includes and spit out the combined result in a `dist` folder.  If you are building a library that you want to work on multiple platforms (AMD, CommonJS, etc) then consider using the `--wrap` option to generate packages tailored for each of the platforms.
 
+For instance, the following command would take `.js` files in the `src/` folder and generate `amd`, `commonjs` and `glob` variants in the `dist/` folder:
+
+```
+interleave build src/*.js --wrap
+```
+
+In the case that you only want specific platform variants (e.g. AMD) specify a comma-delimited list for the `--wrap` option:
+
+```
+interleave build src/*.js --wrap glob,amd
+```
+
 In cases where you are writing a dependency-free library (which [isn't something that should always be encouraged](/DamonOehlman/damonoehlman.github.com/issues/5)) then you can simply write your library source incorporating one of the [UMD](https://github.com/umdjs/umd) patterns and generate a single file.
 
 ## Other Command Line Options
