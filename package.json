@@ -33,7 +33,7 @@
   "devDependencies": {
     "expect.js": "0.1.x",
     "mocha": "1.2.x",
-    "testcli": "0.0.x"
+    "testcli": "0.1.x"
   },
   "repository": {
     "type": "git",
