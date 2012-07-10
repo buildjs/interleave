@@ -1,0 +1,2 @@
+<%= licence %>
+<%= content %>

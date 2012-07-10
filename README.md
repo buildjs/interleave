@@ -2,6 +2,8 @@
 
 Interleave is a web construction tool that is designed to help developers build well structured libraries and also web applications.  The current (`0.5.x`) development branch is a complete ground-up rewrite of the library which uses a variety of other packages to help make the magic happen.
 
+<a href="http://travis-ci.org/#!/DamonOehlman/interleave"><img src="https://secure.travis-ci.org/DamonOehlman/interleave.png" alt="Build Status"></a>
+
 ## Installation
 
 If you are looking to use the latest version of Interleave, simply run the following command:
