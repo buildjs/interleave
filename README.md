@@ -92,26 +92,26 @@ The following command line options are supported by Interleave.
 
     --version
     
-    Print the Interleave version
+Print the Interleave version
     
     --help
     
-    Print a list of commands supported by Interleave
+Print a list of commands supported by Interleave
     
-    --help <command>
+    --help [command]
     
-    Print the information related to <command>
+Print the information related to [command]
 
 ### `build` Command Options
 
-    --output <path>     
+    --output [path]     
     
-    The directory in which output files will be generated. (default: dist/)
+The directory in which output files will be generated. (default: dist/)
     
-    --wrap <platformTypes>
+    --wrap [platformTypes]
     
-    Used to tell Interleave to wrap distributions for particular types of platforms. (default: amd,commonjs,glob)
+Used to tell Interleave to wrap distributions for particular types of platforms. (default: amd,commonjs,glob)
     
     --watch
     
-    Used to tell Interleave to watch any source files for changes.  When a change has been detected, the output files will be automatically regenerated.
+Used to tell Interleave to watch any source files for changes.  When a change has been detected, the output files will be automatically regenerated.  __NOTE:__ This has not yet been implemented (see #15).
