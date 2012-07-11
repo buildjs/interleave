@@ -30,7 +30,28 @@ I started Interleave some time ago, taking inspiration from [Sprockets](https://
 
 ## How To Use Interleave
 
-- TO BE COMPLETED
+Interleave is designed to be used primarily as a command-line tool in it's own right, but can also be integrated with build tools like [Jake](/mde/Jake) using a [simple API](/DamonOehlman/interleave/wiki/API).
+
+When using a tool like Interleave it's a good idea to create a `src/` directory (or similar) in which your raw source files will be created. Personally, I find it works really well to put whichever files you wish to create a distribution for in this `src/` folder and then place other sources that will be "rigged" in within subdirectories within the `src/`.
+
+The following is one example of how a project using Interleave could be structured:
+
+    - src/
+      |- core/
+         |- a.js
+         |- b.coffee
+      |- mylibrary.js
+    - README.md
+    
+You could then build your library / app using the following command:
+
+```
+interleave build src/*.js
+```
+
+In fact, as Interleave is built with "convention over configuration" in mind, you can actually run just `interleave build` and Interleave will imply that you want to build all `.js` files within the `src/` folder.
+
+Once the `interleave` command has finished, a `dist/` folder (by default) will be created and your generated `mylibrary.js` file will exist in that folder.
 
 ## Packaging for AMD, CommonJS and the Browser
 
@@ -50,10 +71,38 @@ interleave build src/*.js --wrap glob,amd
 
 In cases where you are writing a dependency-free library (which [isn't something that should always be encouraged](/DamonOehlman/damonoehlman.github.com/issues/5)) then you can simply write your library source incorporating one of the [UMD](https://github.com/umdjs/umd) patterns and generate a single file.
 
-## CoffeeScript, Stylus and Friends are well Treated
+## CoffeeScript, Stylus and Friends are Treated Well
 
 If you use [CoffeeScript](http://coffeescript.org/), [Stylus](http://learnboost.github.com/stylus/) or other precompilers these are well treated by Interleave (courtesy of [Rigger](/DamonOehlman/rigger)).  Unlike the core Rigger engine though, Interleave will assume that you want to convert source `.coffee`, `.styl`, etc files into their web consumable equivalents (i.e. `.js`, `.css`, etc). 
 
 ## Other Command Line Options
 
-TO BE COMPLETED.
+The following command line options are supported by Interleave. 
+
+### Common Command Line Opts
+
+    --version
+    
+    Print the Interleave version
+    
+    --help
+    
+    Print a list of commands supported by Interleave
+    
+    --help <command>
+    
+    Print the information related to <command>
+
+### `build` Command Options
+
+    --output <path>     
+    
+    The directory in which output files will be generated. (default: dist/)
+    
+    --wrap <platformTypes>
+    
+    Used to tell Interleave to wrap distributions for particular types of platforms. (default: amd,commonjs,glob)
+    
+    --watch
+    
+    Used to tell Interleave to watch any source files for changes.  When a change has been detected, the output files will be automatically regenerated.
