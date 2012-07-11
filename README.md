@@ -43,6 +43,13 @@ The following is one example of how a project using Interleave could be structur
       |- mylibrary.js
     - README.md
     
+The contents of `src/mylibrary.js` would look something like:
+
+```js
+//= core/a
+//= core/b.coffee
+```
+    
 You could then build your library / app using the following command:
 
 ```
@@ -52,6 +59,8 @@ interleave build src/*.js
 In fact, as Interleave is built with "convention over configuration" in mind, you can actually run just `interleave build` and Interleave will imply that you want to build all `.js` files within the `src/` folder.
 
 Once the `interleave` command has finished, a `dist/` folder (by default) will be created and your generated `mylibrary.js` file will exist in that folder.
+
+For this and more examples, see the [examples](/DamonOehlman/interleave/tree/master/examples) folder of this repo.
 
 ## Packaging for AMD, CommonJS and the Browser
 
