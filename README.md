@@ -50,6 +50,10 @@ interleave build src/*.js --wrap glob,amd
 
 In cases where you are writing a dependency-free library (which [isn't something that should always be encouraged](/DamonOehlman/damonoehlman.github.com/issues/5)) then you can simply write your library source incorporating one of the [UMD](https://github.com/umdjs/umd) patterns and generate a single file.
 
+## CoffeeScript, Stylus and Friends are well Treated
+
+If you use [CoffeeScript](http://coffeescript.org/), [Stylus](http://learnboost.github.com/stylus/) or other precompilers these are well treated by Interleave (courtesy of [Rigger](/DamonOehlman/rigger)).  Unlike the core Rigger engine though, Interleave will assume that you want to convert source `.coffee`, `.styl`, etc files into their web consumable equivalents (i.e. `.js`, `.css`, etc). 
+
 ## Other Command Line Options
 
 TO BE COMPLETED.
