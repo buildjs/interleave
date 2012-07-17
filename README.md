@@ -102,6 +102,8 @@ Print a list of commands supported by Interleave
     
 Print the information related to [command]
 
+__NOTE:__ Help commands are still to be implemented in scaffolder (see: DamonOehlman/scaffolder#3)
+
 ### `build` Command Options
 
     --output [path]     
