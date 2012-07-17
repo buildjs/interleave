@@ -41,10 +41,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/DamonOehlman/interleave.git"
+    "url": "git://github.com/buildjs/interleave.git"
   },
   "bugs": {
-    "url": "http://github.com/DamonOehlman/interleave/issues"
+    "url": "http://github.com/buildjs/interleave/issues"
   },
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha --reporter spec --timeout 20000"
