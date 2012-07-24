@@ -9,6 +9,6 @@
     });
     
     if (typeof test != 'undefined') {
-        glob.simple = test;
+        glob.test = test;
     }
 }(this));
