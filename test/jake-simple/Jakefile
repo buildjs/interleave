@@ -1,0 +1,7 @@
+var interleave = require('../../');
+
+task('default', function() {
+	interleave(['src/*.js'], {
+		wrap: true
+	}, complete);
+}, { async: true });
