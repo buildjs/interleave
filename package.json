@@ -20,7 +20,7 @@
     "async": "0.1.x",
     "debug": "*",
     "findme": "0.0.x",
-    "getit": "0.1.x",
+    "getit": "0.2.x",
     "glob": "3.1.x",
     "mkdirp": "0.3.x",
     "nopt": "1.0.x",
