@@ -10,6 +10,8 @@ Document Contents
 .. toctree::
    :maxdepth: 2
 
+   building-libraries
+   building-apps
    programmatic-use
 
 Indices and tables

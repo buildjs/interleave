@@ -1,0 +1,12 @@
+var interleave = require('../../'),
+	path = require('path');
+
+task('default', function() {
+	interleave(['src/*.js'], {
+		resolve: true,
+		repository: path.resolve(__dirname, '..', 'module'),
+		'allow-install': true
+	}, function(err) {
+		(err ? fail : complete).apply(null, arguments);
+	});
+}, { async: true });
