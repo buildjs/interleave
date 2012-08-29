@@ -1114,7 +1114,7 @@
   };
 
 }).call(this);
-;
+
 (function(glob) {
     var definitions = {};
         
@@ -1431,7 +1431,7 @@
         glob.registry = registry;
     }
 }(this));
-;
+
 (function(glob) {
     var reSep = /[\/\.]/;
     
@@ -1487,7 +1487,7 @@
         glob.wildcard = wildcard;
     }
 }(this));
-;
+
 (function(glob) {
     var reExpr = /([\w\.]+)\s*([\><\!\=]\=?)\s*([\-\w\.]+)/,
         reQuotedExpr = /([\w\.]+)\s*([\><\!\=]\=?)\s*\"([^\"]+)\"/,

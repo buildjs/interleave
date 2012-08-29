@@ -9,4 +9,5 @@ describe('build tests', function() {
     it('should be able to use a custom moduleName', testcli('build-customname'));
 
     it('should be able to resolve dependencies using resolveme', testcli('build-resolve'));
+    it('should be able to resolve dependencies and create additional required files', testcli('build-resolve-extras'));
 });
