@@ -1,0 +1,3 @@
+.. _Node.js: http://nodejs.org
+.. _reusable JS: http://reusable-javascript.readthedocs.org/
+.. _Jake: https://github.com/mde/jake

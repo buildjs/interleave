@@ -1,5 +1,5 @@
 var async = require('async'),
-    builder = require('./helpers/builder'),
+    builder = require('./lib/helpers/builder'),
     debug = require('debug')('interleave'),
     glob = require('glob'),
     path = require('path'),
@@ -24,7 +24,10 @@ function interleave(targets, opts, callback) {
     // set the default path to the cwd
     opts.sourcePath = opts.sourcePath || path.resolve('src');
     opts.output     = opts.output     || path.resolve('dist');
-    
+
+    // if the user is attempting to both wrap and resolve, report an error
+    if (opts.resolve && opts.wrap) return callback(new Error('Cannot wrap AND resolve'));
+
     // if wrap is specified, and has defaulted to 'true' (no options specified, then set defaults)
     if (opts.wrap === 'true' || opts.wrap === true) {
         opts.wrap = ['amd', 'commonjs', 'glob'];
@@ -80,6 +83,6 @@ function interleave(targets, opts, callback) {
 }
 
 // initialise the reporter with the rules
-reporter.addRules(require('./helpers/reporter-rules'));
+reporter.addRules(require('./lib/helpers/reporter-rules'));
 
 module.exports = interleave;
