@@ -1,7 +1,0 @@
-================
-Programmatic Use
-================
-
-When combined with other build tools such as `Jake`_, Interleave can achieve more powerful results that just a tool in it's own right.
-
-.. include:: links.txt
