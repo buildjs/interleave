@@ -18,7 +18,7 @@ function interleave(targets, opts, callback) {
         opts = {};
     }
     
-    // ensure we have opts
+    // TODO: normalize the opts
     opts = _.extend({}, opts);
 
     // set the default path to the cwd
