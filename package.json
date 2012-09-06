@@ -37,7 +37,10 @@
   "devDependencies": {
     "jake": "0.3.x",
     "mocha": "1.3.x",
-    "testcli": "0.1.x"
+    "testcli": "0.1.x",
+    "coffee-script": "1.3.3",
+    "resolveme": "0.1.x",
+    "stylus": "0.29.x"
   },
   "repository": {
     "type": "git",
