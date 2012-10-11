@@ -49,9 +49,9 @@ function interleave(targets, opts, callback) {
     // iterate through the target paths and replace backslashes with forward slashes
     // as per the node in node-glob docs: https://github.com/isaacs/node-glob#windows
     targets = targets.map(function(target) {
-        return path.resolve((target || '').split('\\').join('/'));
+        return (target || '').replace(process.cwd() + '\\', '').replace(/\\/g, '/');
     });
-    
+
     debug('interleave build requested, input globs: ', targets);
     async.concat(targets, glob, function(err, sources) {
         debug('found sources: ', sources);
