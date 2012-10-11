@@ -2,7 +2,7 @@
 
 Interleave is a web construction tool that is designed to help developers build well structured libraries and also web applications.
 
-<a href="http://travis-ci.org/#!/DamonOehlman/interleave"><img src="https://secure.travis-ci.org/DamonOehlman/interleave.png" alt="Build Status"></a>
+<a href="http://travis-ci.org/#!/buildjs/interleave"><img src="https://secure.travis-ci.org/buildjs/interleave.png" alt="Build Status"></a>
 
 ## Installation
 
