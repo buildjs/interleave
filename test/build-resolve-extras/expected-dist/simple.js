@@ -1,5 +1,6 @@
 
 // req: 
+
 /*
  Copyright (c) 2010-2012, CloudMade, Vladimir Agafonkin
  Leaflet is an open-source JavaScript library for mobile-friendly interactive maps.
@@ -7638,8 +7639,15 @@ L.Map.include({
 
 
 }(this));
-;var simple = {};
-
-_.extend(simple, {
-    test: true
-});
+;
+(function(glob) {
+    var simple = {};
+    
+    _.extend(simple, {
+        test: true
+    });
+    
+    if (typeof simple != 'undefined') {
+        glob.simple = simple;
+    }
+}(this));

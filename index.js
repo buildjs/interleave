@@ -1,5 +1,5 @@
 var async = require('async'),
-    builder = require('./lib/helpers/builder'),
+    builder = require('./lib/builder'),
     debug = require('debug')('interleave'),
     glob = require('glob'),
     path = require('path'),
@@ -83,6 +83,6 @@ function interleave(targets, opts, callback) {
 }
 
 // initialise the reporter with the rules
-reporter.addRules(require('./lib/helpers/reporter-rules'));
+reporter.addRules(require('./lib/reporter-rules'));
 
 module.exports = interleave;

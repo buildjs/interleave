@@ -1,6 +1,7 @@
 
 // req: 
 
+
 (function(glob) {
     var reExpr = /([\w\.]+)\s*([\><\!\=]\=?)\s*([\-\w\.]+)/,
         reQuotedExpr = /([\w\.]+)\s*([\><\!\=]\=?)\s*\"([^\"]+)\"/,
@@ -1796,8 +1797,15 @@
         glob.registry = registry;
     }
 }(this));
-;var simple = {};
-
-_.extend(simple, {
-    test: true
-});
+;
+(function(glob) {
+    var simple = {};
+    
+    _.extend(simple, {
+        test: true
+    });
+    
+    if (typeof simple != 'undefined') {
+        glob.simple = simple;
+    }
+}(this));

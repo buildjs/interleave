@@ -1,0 +1,13 @@
+<%= title %> [<%= version %>]<% if (url) { %>
+<%= url %>
+<% } %>
+
+build   => <%= builddate %>
+md5     => <%= hash %> <% if (copyright) { %>
+
+<%= copyright %>
+
+<% } %>
+<% if (licenses) _.each([].concat(licenses), function(license) { %>
+Licensed under <%= license.type %> (<%= license.url %>) license.
+<% }); %> 

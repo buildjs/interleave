@@ -1,7 +1,9 @@
 var testcli = require('testcli')(__dirname);
 
 describe('build tests', function() {
-    it('should be able to perform a simple build', testcli('build-simple'));
+    it('should be able to perform a umd build with deps', testcli('build-umd-deps'));
+    it('should be able to perform a umd build with no deps', testcli('build-umd-nodeps'));
+    
     it('should automatically assume that "src/*.js" is requested when not specified', testcli('build-autoglob'));
     it('should assume the build command when none is supplied', testcli('build-defaultcommand'));
     
