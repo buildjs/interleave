@@ -1,5 +1,5 @@
 var interleave = require('../../');
 
 task('default', function() {
-	interleave(['src/*.js'], complete);
+	interleave(['src/*.js'], { nometa: true }, complete);
 }, { async: true });

@@ -1,1 +1,1 @@
-../../bin/interleave build src/*.js --wrap
+../../bin/interleave build src/*.js --nometa --wrap

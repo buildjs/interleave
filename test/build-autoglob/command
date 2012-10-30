@@ -1,1 +1,1 @@
-../../bin/interleave build --plain
+../../bin/interleave build --plain --nometa

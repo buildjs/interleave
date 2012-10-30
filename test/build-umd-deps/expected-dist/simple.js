@@ -1,6 +1,5 @@
 
 
-
 // umdjs returnExports pattern: https://github.com/umdjs/umd/blob/master/returnExports.js
 (function (root, factory) {
     if (typeof exports === 'object') {

@@ -1,6 +1,4 @@
 
-
-
 define('test', [], function() {
     
     var test = {};

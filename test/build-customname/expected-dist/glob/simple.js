@@ -1,6 +1,4 @@
-
 // req: 
-
 
 (function(glob) {
     
