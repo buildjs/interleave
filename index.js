@@ -9,7 +9,8 @@ var async = require('async'),
     transpileTargets = {
         styl: '.css',
         coffee: '.js'
-    };
+    },
+    reCommaDelim = /\,\s*/;
 
 function interleave(targets, opts, callback) {
     // remap opts if required
