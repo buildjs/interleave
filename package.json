@@ -11,15 +11,15 @@
   "bin": {
     "interleave": "./bin/interleave"
   },
-  "version": "0.5.23",
+  "version": "0.5.24",
   "engines": {
     "node": ">= 0.6.x < 0.9.0"
   },
-  
   "licenses": [
-    { "type": "MIT" }
+    {
+      "type": "MIT"
+    }
   ],
-  
   "dependencies": {
     "async": "0.1.x",
     "debug": "*",
