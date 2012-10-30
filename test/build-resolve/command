@@ -1,1 +1,1 @@
-../../bin/interleave build src/*.js --resolve --repository ../modules --allow-install
+../../bin/interleave build src/*.js --nometa --resolve --repository ../modules --allow-install

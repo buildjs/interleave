@@ -4,6 +4,7 @@ var interleave = require('../../'),
 task('default', function() {
 	interleave(['src/*.js'], {
 		resolve: true,
+        nometa: true,
 		repository: path.resolve(__dirname, '..', 'modules'),
 		'allow-install': true
 	}, complete);
