@@ -1,2 +1,3 @@
+# req: <%= dependencies %>
 <%= resolvedContent %>
 <%= content %>
