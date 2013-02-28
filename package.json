@@ -21,32 +21,32 @@
     }
   ],
   "dependencies": {
-    "async": "0.1.x",
+    "async": "0.2.x",
     "debug": "*",
     "findme": "0.1.x",
     "getit": "0.2.x",
     "glob": "3.1.x",
     "headerblock": "0.1.x",
     "mkdirp": "0.3.x",
-    "nopt": "1.0.x",
+    "nopt": "2.1.x",
     "out": "0.4.x",
     "reporter": "0.0.x",
     "rigger": "0.3.x",
     "scaffolder": "0.6.x",
     "squirrel": "0.1.x",
-    "underscore": "1.3.x"
+    "underscore": "1.4.x"
   },
   "pluginDependencies": {
     "resolveme": "0.1.x",
     "watch": "0.5.x"
   },
   "devDependencies": {
-    "jake": "0.3.x",
-    "mocha": "1.3.x",
+    "jake": "0.5.x",
+    "mocha": "1.8.x",
     "testcli": "0.1.x",
-    "coffee-script": "1.3.3",
+    "coffee-script": "1.5.0",
     "resolveme": "0.1.x",
-    "stylus": "0.29.x"
+    "stylus": "0.32.1"
   },
   "repository": {
     "type": "git",
