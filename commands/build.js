@@ -2,8 +2,8 @@ var async = require('async'),
     debug = require('debug')('interleave'),
     path = require('path'),
     reCommaDelim = /\,\s*/,
-    interleave = require('../../'),
-    squirrel = require('../squirrel'),
+    interleave = require('../'),
+    squirrel = require('../lib/squirrel'),
     reGlobPath = /^([^\*]*\/)/;
 
 // action description
