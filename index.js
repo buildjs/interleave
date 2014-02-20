@@ -30,7 +30,7 @@ function interleave(targets, opts, callback) {
     if (opts.resolve && opts.wrap) return callback(new Error('Cannot wrap AND resolve'));
 
     // if wrap is specified, and has defaulted to 'true' (no options specified, then set defaults)
-    if (opts.wrap === 'true' || opts.wrap === true) {
+    if (opts.wrap === '' || opts.wrap === 'true' || opts.wrap === true) {
         opts.wrap = ['amd', 'commonjs', 'glob'];
     }
 
@@ -38,7 +38,7 @@ function interleave(targets, opts, callback) {
     if (typeof opts.wrap == 'string' || (opts.wrap instanceof String)) {
         opts.wrap = opts.wrap.split(reCommaDelim);
     }
-    
+
     // update the squirrel all install options
     squirrel.defaults.allowInstall = opts['allow-install'] || 'prompt';
     
