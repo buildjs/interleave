@@ -2,12 +2,6 @@
   "name": "interleave",
   "description": "Advanced JS Build tool",
   "author": "Damon Oehlman <damon.oehlman@gmail.com>",
-  "tags": [
-    "build",
-    "amd",
-    "commonjs",
-    "browser"
-  ],
   "bin": {
     "interleave": "./bin/interleave"
   },
@@ -41,7 +35,8 @@
     "stylus": "~0.42.2"
   },
   "scripts": {
-    "test": "mocha --reporter spec --timeout 20000"
+    "test": "mocha --reporter spec --timeout 20000",
+    "gendocs": "gendocs > README.md"
   },
   "main": "index.js",
   "directories": {
