@@ -1,7 +1,7 @@
 {
   "name": "interleave",
   "description": "Advanced JS Build tool",
-  "author": "Damon Oehlman <damon.oehlman@sidelab.com>",
+  "author": "Damon Oehlman <damon.oehlman@gmail.com>",
   "tags": [
     "build",
     "amd",
@@ -12,51 +12,56 @@
     "interleave": "./bin/interleave"
   },
   "version": "0.5.24",
-  "engines": {
-    "node": ">= 0.6.x < 0.9.0"
-  },
-  "licenses": [
-    {
-      "type": "MIT"
-    }
-  ],
   "dependencies": {
     "async": "0.2.x",
     "debug": "*",
     "findme": "0.1.x",
-    "getit": "0.2.x",
-    "glob": "3.1.x",
+    "getit": "~0.4.0",
+    "glob": "~3.2.8",
     "headerblock": "0.1.x",
     "mkdirp": "0.3.x",
-    "nopt": "2.1.x",
-    "out": "0.4.x",
+    "nopt": "~2.2.0",
+    "out": "~0.5.4",
     "reporter": "0.0.x",
     "rigger": "0.3.x",
-    "scaffolder": "0.6.x",
-    "squirrel": "0.1.x",
-    "underscore": "1.4.x"
+    "scaffolder": "~0.9.1",
+    "squirrel": "~0.2.1",
+    "underscore": "~1.6.0"
   },
   "pluginDependencies": {
     "resolveme": "0.1.x",
     "watch": "0.5.x"
   },
   "devDependencies": {
-    "jake": "0.5.x",
-    "mocha": "1.8.x",
-    "testcli": "0.1.x",
-    "coffee-script": "1.5.0",
+    "jake": "~0.7.7",
+    "mocha": "~1.17.1",
+    "testcli": "~0.1.2",
+    "coffee-script": "~1.7.1",
     "resolveme": "0.1.x",
-    "stylus": "0.32.1"
+    "stylus": "~0.42.2"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec --timeout 20000"
+  },
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "test": "test"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/buildjs/interleave.git"
+    "url": "https://github.com/buildjs/interleave.git"
   },
+  "keywords": [
+    "build",
+    "amd",
+    "commonjs",
+    "browser"
+  ],
+  "license": "MIT",
   "bugs": {
-    "url": "http://github.com/buildjs/interleave/issues"
+    "url": "https://github.com/buildjs/interleave/issues"
   },
-  "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --reporter spec --timeout 20000"
-  },
-  "contributors": []
+  "homepage": "https://github.com/buildjs/interleave"
 }
