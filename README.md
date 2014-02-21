@@ -1,40 +1,64 @@
 # Interleave
 
-Interleave is a web construction tool that is designed to help developers build well structured libraries and also web applications.
+Interleave is a web construction tool that is designed to help developers
+build well structured libraries and also web applications.
 
-<a href="http://travis-ci.org/#!/buildjs/interleave"><img src="https://secure.travis-ci.org/buildjs/interleave.png" alt="Build Status"></a>
+
+[![NPM](https://nodei.co/npm/interleave.png)](https://nodei.co/npm/interleave/)
+
+[![Build Status](https://travis-ci.org/buildjs/interleave.png?branch=master)](https://travis-ci.org/buildjs/interleave)
 
 ## Installation
 
-If you are looking to use the latest version of Interleave, simply run the following command:
+If you are looking to use the latest version of Interleave, simply run
+the npm install command as indicated by the nodei.co badge above.
 
-```
-[sudo] npm install -g interleave
-```
-
-If you have been using Interleave 0.3.x (or possibly 0.4.x) then you should install that particular version:
-
-```
-[sudo] npm install -g interleave@0.3.x
-```
+If you have been using Interleave 0.3.x (or possibly 0.4.x) then you
+should install that particular version:
 
 ## Why Interleave Exists
 
-The reason that Interleave (and underlying include engine [Rigger](https://github.com/DamonOehlman/rigger)) exists that I believe that our current techniques for building JS libraries, and also rich web applications are not going to see us too many more years into the future.
+Interleave was written primarily as a JS alternative to
+[Sprockets](https://github.com/sstephenson/sprockets) which uses a similar
+comment directed include system.  I used interleave for a couple of years
+to create more structured JS projects.
 
-We need to place effort and emphasis on creating JS components that are usable both in the browser and in server environments (such as [NodeJS](http://nodejs.org) and [CouchDB](http://couchdb.apache.org/)).
+## Why I no longer use Interleave
 
-There have been some excellent attempts to make this work from the NodeJS side up (see tools like [Browserify](https://github.com/substack/node-browserify)) but client-side libraries still largely use fairly primitive file concatenation as the basis for library builds.
+Personally, I don't use Interleave much at all anymore.  Why?  Well
+primarily I found myself spending more time tweaking build tools than
+actually spending time working on projects.  Additionally, once I saw
+what [substack](https://github.com/substack) was doing with
+[Browserify](https://github.com/substack/node-browserify) from version 2
+onwards it became clear to me that for most projects that was a better
+solution.
 
-I started Interleave some time ago, taking inspiration from [Sprockets](https://github.com/sstephenson/sprockets) and finally, after many months of development on it and [components of the solution stack](/DamonOehlman/interleave/wiki/Solution-Stack), Interleave is starting to really come together.
+This is primarily due to it being used in combination with
+[npm](https://www.npmjs.org/) for managing module dependencies.  While I
+felt strongly for a time that browser modules did not belong in NPM, I now
+believe I was quite wrong and it has proven to be one of the most
+effective ways of managing software dependencies that I have ever worked
+with.
+
+All of that said, if Interleave is a good fit for you then you should use
+it and I'll try to keep it up to date so it continues to work in current
+node versions.
 
 ## How To Use Interleave
 
-Interleave is designed to be used primarily as a command-line tool in it's own right, but can also be integrated with build tools like [Jake](/mde/Jake) using a [simple API](/DamonOehlman/interleave/wiki/API).
+Interleave is designed to be used primarily as a command-line tool in
+it's own right, but can also be integrated with build tools like
+[Jake](https://github.com/mde/Jake) using a
+[simple API](/DamonOehlman/interleave/wiki/API).
 
-When using a tool like Interleave it's a good idea to create a `src/` directory (or similar) in which your raw source files will be created. Personally, I find it works really well to put whichever files you wish to create a distribution for in this `src/` folder and then place other sources that will be "rigged" in within subdirectories within the `src/`.
+When using a tool like Interleave it's a good idea to create a `src/`
+directory (or similar) in which your raw source files will be created.
+Personally, I find it works really well to put whichever files you wish
+to create a distribution for in this `src/` folder and then place other
+sources that will be "rigged" in within subdirectories within the `src/`.
 
-The following is one example of how a project using Interleave could be structured:
+The following is one example of how a project using Interleave could be 
+structured:
 
     - src/
       |- core/
@@ -56,33 +80,52 @@ You could then build your library / app using the following command:
 interleave build src/*.js
 ```
 
-In fact, as Interleave is built with "convention over configuration" in mind, you can actually run just `interleave build` and Interleave will imply that you want to build all `.js` files within the `src/` folder.
+In fact, as Interleave is built with "convention over configuration" in
+mind, you can actually run just `interleave build` and Interleave will
+infer that you want to build all `.js` files within the `src/` folder.
 
-Once the `interleave` command has finished, a `dist/` folder (by default) will be created and your generated `mylibrary.js` file will exist in that folder.
+Once the `interleave` command has finished, a `dist/` folder (by default)
+will be created and your generated `mylibrary.js` file will exist in that
+folder.
 
-For this and more examples, see the [examples](/DamonOehlman/interleave/tree/master/examples) folder of this repo.
+For this and more examples, see the
+[examples](/DamonOehlman/interleave/tree/master/examples) folder of
+this repo.
 
 ## Packaging for AMD, CommonJS and the Browser
 
-By default, Interleave will take your input files, rig in specified includes and spit out the combined result in a `dist` folder.  If you are building a library that you want to work on multiple platforms (AMD, CommonJS, etc) then consider using the `--wrap` option to generate packages tailored for each of the platforms.
+By default, Interleave will take your input files, rig in specified
+includes and spit out the combined result in a `dist` folder with a
+[UMDjs](https://github.com/umdjs/umd) compatible header.  If you
+specifically want to create separate files for each of the different
+module approaches then you can use the `--wrap` option to specify either
+one module pattern only (e.g. `--wrap=amd`) or just tell Interleave that
+you want separate files by passing with switch in (`--wrap`).
 
-For instance, the following command would take `.js` files in the `src/` folder and generate `amd`, `commonjs` and `glob` variants in the `dist/` folder:
+For instance, the following command would take `.js` files in the `src/`
+folder and generate `amd`, `commonjs` and `glob` variants in the `dist/`
+folder:
 
 ```
 interleave build src/*.js --wrap
 ```
 
-In the case that you only want specific platform variants (e.g. AMD) specify a comma-delimited list for the `--wrap` option:
+In the case that you only want specific platform variants (e.g. AMD)
+specify a comma-delimited list for the `--wrap` option:
 
 ```
 interleave build src/*.js --wrap glob,amd
 ```
 
-In cases where you are writing a dependency-free library (which [isn't something that should always be encouraged](/DamonOehlman/damonoehlman.github.com/issues/5)) then you can simply write your library source incorporating one of the [UMD](https://github.com/umdjs/umd) patterns and generate a single file.
-
 ## CoffeeScript, Stylus and Friends are Treated Well
 
-If you use [CoffeeScript](http://coffeescript.org/), [Stylus](http://learnboost.github.com/stylus/) or other precompilers these are well treated by Interleave (courtesy of [Rigger](/DamonOehlman/rigger)).  Unlike the core Rigger engine though, Interleave will assume that you want to convert source `.coffee`, `.styl`, etc files into their web consumable equivalents (i.e. `.js`, `.css`, etc). 
+If you use [CoffeeScript](http://coffeescript.org/),
+[Stylus](http://learnboost.github.com/stylus/) or other precompilers
+these are well treated by Interleave (courtesy of
+[Rigger](https://github.com/DamonOehlman/rigger)).  Unlike the core
+Rigger engine though, Interleave will assume that you want to convert
+source `.coffee`, `.styl`, etc files into their web consumable
+equivalents (i.e. `.js`, `.css`, etc). 
 
 ## Other Command Line Options
 
@@ -102,7 +145,8 @@ Print a list of commands supported by Interleave
     
 Print the information related to [command]
 
-__NOTE:__ Help commands are still to be implemented in scaffolder (see: DamonOehlman/scaffolder#3)
+__NOTE:__ Help commands are still to be implemented in scaffolder
+(see: DamonOehlman/scaffolder#3)
 
 ### `build` Command Options
 
@@ -112,8 +156,30 @@ The directory in which output files will be generated. (default: dist/)
     
     --wrap [platformTypes]
     
-Used to tell Interleave to wrap distributions for particular types of platforms. (default: amd,commonjs,glob)
-    
-    --watch
-    
-Used to tell Interleave to watch any source files for changes.  When a change has been detected, the output files will be automatically regenerated.  __NOTE:__ This has not yet been implemented (see #15).
+Used to tell Interleave to wrap distributions for particular types of 
+platforms. (default: amd,commonjs,glob)
+
+## License(s)
+
+### MIT
+
+Copyright (c) 2014 Damon Oehlman <damon.oehlman@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
