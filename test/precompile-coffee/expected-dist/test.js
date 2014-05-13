@@ -58,6 +58,5 @@
     
     }).call(this);
     
-    
     return typeof test != 'undefined' ? test : undefined;
 }));
