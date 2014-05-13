@@ -1,16 +1,17 @@
-var async = require('async'),
-    builder = require('./lib/builder'),
-    debug = require('debug')('interleave'),
-    glob = require('glob'),
-    path = require('path'),
-    reporter = require('reporter'),
-    squirrel = require('squirrel'),
-    _ = require('underscore'),
-    transpileTargets = {
-        styl: '.css',
-        coffee: '.js'
-    },
-    reCommaDelim = /\,\s*/;
+var async = require('async');
+var builder = require('./lib/builder');
+var debug = require('debug')('interleave');
+var glob = require('glob');
+var path = require('path');
+var reporter = require('reporter');
+var squirrel = require('squirrel');
+var _ = require('underscore');
+
+var reCommaDelim = /\,\s*/;
+var transpileTargets = {
+  styl: '.css',
+  coffee: '.js'
+};
 
 /**
     # Interleave
@@ -67,7 +68,7 @@ var async = require('async'),
     to create a distribution for in this `src/` folder and then place other
     sources that will be "rigged" in within subdirectories within the `src/`.
 
-    The following is one example of how a project using Interleave could be 
+    The following is one example of how a project using Interleave could be
     structured:
 
         - src/
@@ -76,14 +77,14 @@ var async = require('async'),
              |- b.coffee
           |- mylibrary.js
         - README.md
-        
+
     The contents of `src/mylibrary.js` would look something like:
 
     ```js
     //= core/a
     //= core/b.coffee
     ```
-        
+
     You could then build your library / app using the following command:
 
     ```
@@ -135,24 +136,24 @@ var async = require('async'),
     [Rigger](https://github.com/DamonOehlman/rigger)).  Unlike the core
     Rigger engine though, Interleave will assume that you want to convert
     source `.coffee`, `.styl`, etc files into their web consumable
-    equivalents (i.e. `.js`, `.css`, etc). 
+    equivalents (i.e. `.js`, `.css`, etc).
 
     ## Other Command Line Options
 
-    The following command line options are supported by Interleave. 
+    The following command line options are supported by Interleave.
 
     ### Common Command Line Opts
 
         --version
-        
+
     Print the Interleave version
-        
+
         --help
-        
+
     Print a list of commands supported by Interleave
-        
+
         --help [command]
-        
+
     Print the information related to [command]
 
     __NOTE:__ Help commands are still to be implemented in scaffolder
@@ -160,85 +161,85 @@ var async = require('async'),
 
     ### `build` Command Options
 
-        --output [path]     
-        
+        --output [path]
+
     The directory in which output files will be generated. (default: dist/)
-        
+
         --wrap [platformTypes]
-        
-    Used to tell Interleave to wrap distributions for particular types of 
+
+    Used to tell Interleave to wrap distributions for particular types of
     platforms. (default: amd,commonjs,glob)
 **/
 
 function interleave(targets, opts, callback) {
-    // remap opts if required
-    if (typeof opts == 'function') {
-        callback = opts;
-        opts = {};
-    }
-    
-    // TODO: normalize the opts
-    opts = _.extend({}, opts);
+  // remap opts if required
+  if (typeof opts == 'function') {
+    callback = opts;
+    opts = {};
+  }
 
-    // set the default path to the cwd
-    opts.sourcePath = opts.sourcePath || path.resolve('src');
-    opts.output     = opts.output     || path.resolve('dist');
+  // TODO: normalize the opts
+  opts = _.extend({}, opts);
 
-    // if the user is attempting to both wrap and resolve, report an error
-    if (opts.resolve && opts.wrap) return callback(new Error('Cannot wrap AND resolve'));
+  // set the default path to the cwd
+  opts.sourcePath = opts.sourcePath || path.resolve('src');
+  opts.output     = opts.output     || path.resolve('dist');
 
-    // if wrap is specified, and has defaulted to 'true' (no options specified, then set defaults)
-    if (opts.wrap === '' || opts.wrap === 'true' || opts.wrap === true) {
-        opts.wrap = ['amd', 'commonjs', 'glob'];
-    }
+  // if the user is attempting to both wrap and resolve, report an error
+  if (opts.resolve && opts.wrap) return callback(new Error('Cannot wrap AND resolve'));
 
-    // if we have a wrap option as a string, then split
-    if (typeof opts.wrap == 'string' || (opts.wrap instanceof String)) {
-        opts.wrap = opts.wrap.split(reCommaDelim);
-    }
+  // if wrap is specified, and has defaulted to 'true' (no options specified, then set defaults)
+  if (opts.wrap === '' || opts.wrap === 'true' || opts.wrap === true) {
+    opts.wrap = ['amd', 'commonjs', 'glob'];
+  }
 
-    // update the squirrel all install options
-    squirrel.defaults.allowInstall = opts['allow-install'] || 'prompt';
-    
-    // if the targets member is not an array, then wrap it in one
-    if (! Array.isArray(targets)) {
-        targets = [targets];
-    }
-    
-    // iterate through the target paths and replace backslashes with forward slashes
-    // as per the node in node-glob docs: https://github.com/isaacs/node-glob#windows
-    targets = targets.map(function(target) {
-        return (target || '').replace(process.cwd() + '\\', '').replace(/\\/g, '/');
-    });
+  // if we have a wrap option as a string, then split
+  if (typeof opts.wrap == 'string' || (opts.wrap instanceof String)) {
+    opts.wrap = opts.wrap.split(reCommaDelim);
+  }
 
-    debug('interleave build requested, input globs: ', targets);
-    async.concat(targets, glob, function(err, sources) {
-        debug('found sources: ', sources);
-        
-        // process each of the specified files
-        async.forEach(
-            sources,
-            function(source, itemCallback) {
-                var sourceExt = path.extname(source),
-                
-                    // initialise the target extension (by default converting .coffee => .js, .styl => .css, etc)
-                    targetExt = transpileTargets[sourceExt.slice(1)] || sourceExt,
+  // update the squirrel all install options
+  squirrel.defaults.allowInstall = opts['allow-install'] || 'prompt';
 
-                    // create a builder for the file
-                    rigger = builder.createRigger(source, targetExt, opts),
-                    
-                    // initialise the wrappers as per the opts
-                    // if the target ext is not .js, reset the wrapping types to an empty list
-                    wrappers = (targetExt === '.js' ? opts.wrap : null) || [''];
+  // if the targets member is not an array, then wrap it in one
+  if (! Array.isArray(targets)) {
+    targets = [targets];
+  }
 
-                // rig the target for each of the specified packages
-                // running in series so the output makes sense
-                async.forEach(wrappers, rigger, itemCallback);
-            },
+  // iterate through the target paths and replace backslashes with forward slashes
+  // as per the node in node-glob docs: https://github.com/isaacs/node-glob#windows
+  targets = targets.map(function(target) {
+    return (target || '').replace(process.cwd() + '\\', '').replace(/\\/g, '/');
+  });
 
-            callback
-        );
-    });
+  debug('interleave build requested, input globs: ', targets);
+  async.concat(targets, glob, function(err, sources) {
+    debug('found sources: ', sources);
+
+    // process each of the specified files
+    async.forEach(
+      sources,
+      function(source, itemCallback) {
+        var sourceExt = path.extname(source),
+
+            // initialise the target extension (by default converting .coffee => .js, .styl => .css, etc)
+            targetExt = transpileTargets[sourceExt.slice(1)] || sourceExt,
+
+            // create a builder for the file
+            rigger = builder.createRigger(source, targetExt, opts),
+
+            // initialise the wrappers as per the opts
+            // if the target ext is not .js, reset the wrapping types to an empty list
+            wrappers = (targetExt === '.js' ? opts.wrap : null) || [''];
+
+        // rig the target for each of the specified packages
+        // running in series so the output makes sense
+        async.forEach(wrappers, rigger, itemCallback);
+      },
+
+      callback
+    );
+  });
 }
 
 // initialise the reporter with the rules
