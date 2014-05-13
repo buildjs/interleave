@@ -16,7 +16,7 @@
     "mkdirp": "~0.5",
     "nopt": "~2.2.0",
     "out": "~0.5.4",
-    "reporter": "0.0.x",
+    "reporter": "~0.1",
     "rigger": "~0.5",
     "scaffolder": "~0.9.1",
     "squirrel": "~0.2.1",
