@@ -7,17 +7,17 @@
   },
   "version": "0.6.0",
   "dependencies": {
-    "async": "0.2.x",
+    "async": "~0.8",
     "debug": "*",
     "findme": "0.1.x",
     "getit": "~0.4.0",
     "glob": "~3.2.8",
     "headerblock": "0.1.x",
-    "mkdirp": "0.3.x",
+    "mkdirp": "~0.5",
     "nopt": "~2.2.0",
     "out": "~0.5.4",
     "reporter": "0.0.x",
-    "rigger": "0.3.x",
+    "rigger": "~0.5",
     "scaffolder": "~0.9.1",
     "squirrel": "~0.2.1",
     "underscore": "~1.6.0"
@@ -28,11 +28,11 @@
   },
   "devDependencies": {
     "jake": "~0.7.7",
-    "mocha": "~1.17.1",
+    "mocha": "^1",
     "testcli": "~0.1.2",
-    "coffee-script": "~1.7.1",
+    "coffee-script": "^1",
     "resolveme": "0.1.x",
-    "stylus": "~0.42.2"
+    "stylus": "~0.45"
   },
   "scripts": {
     "test": "mocha --reporter spec --timeout 20000",
