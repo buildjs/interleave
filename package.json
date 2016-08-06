@@ -27,12 +27,12 @@
     "watch": "0.5.x"
   },
   "devDependencies": {
+    "coffee-script": "1.10.0",
     "jake": "~0.7.7",
     "mocha": "^1",
-    "testcli": "~0.1.2",
-    "coffee-script": "1.7.1",
     "resolveme": "0.1.x",
-    "stylus": "0.45.0"
+    "stylus": "0.45.0",
+    "testcli": "~0.1.2"
   },
   "scripts": {
     "test": "mocha --reporter spec --timeout 20000",
