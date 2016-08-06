@@ -31,7 +31,7 @@
     "jake": "~0.7.7",
     "mocha": "^1",
     "resolveme": "0.1.x",
-    "stylus": "0.45.0",
+    "stylus": "0.54.5",
     "testcli": "~0.1.2"
   },
   "scripts": {
