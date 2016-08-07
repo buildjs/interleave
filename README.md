@@ -1,3 +1,4 @@
+
 # Interleave
 
 Interleave is a web construction tool that is designed to help developers
@@ -6,7 +7,7 @@ build well structured libraries and also web applications.
 
 [![NPM](https://nodei.co/npm/interleave.png)](https://nodei.co/npm/interleave/)
 
-[![Build Status](https://travis-ci.org/buildjs/interleave.png?branch=master)](https://travis-ci.org/buildjs/interleave)
+[![Build Status](https://api.travis-ci.org/buildjs/interleave.svg?branch=master)](https://travis-ci.org/buildjs/interleave) [![bitHound Score](https://www.bithound.io/github/buildjs/interleave/badges/score.svg)](https://www.bithound.io/github/buildjs/interleave) 
 
 ## Installation
 
@@ -57,7 +58,7 @@ Personally, I find it works really well to put whichever files you wish
 to create a distribution for in this `src/` folder and then place other
 sources that will be "rigged" in within subdirectories within the `src/`.
 
-The following is one example of how a project using Interleave could be 
+The following is one example of how a project using Interleave could be
 structured:
 
     - src/
@@ -66,14 +67,14 @@ structured:
          |- b.coffee
       |- mylibrary.js
     - README.md
-    
+
 The contents of `src/mylibrary.js` would look something like:
 
 ```js
 //= core/a
 //= core/b.coffee
 ```
-    
+
 You could then build your library / app using the following command:
 
 ```
@@ -125,24 +126,24 @@ these are well treated by Interleave (courtesy of
 [Rigger](https://github.com/DamonOehlman/rigger)).  Unlike the core
 Rigger engine though, Interleave will assume that you want to convert
 source `.coffee`, `.styl`, etc files into their web consumable
-equivalents (i.e. `.js`, `.css`, etc). 
+equivalents (i.e. `.js`, `.css`, etc).
 
 ## Other Command Line Options
 
-The following command line options are supported by Interleave. 
+The following command line options are supported by Interleave.
 
 ### Common Command Line Opts
 
     --version
-    
+
 Print the Interleave version
-    
+
     --help
-    
+
 Print a list of commands supported by Interleave
-    
+
     --help [command]
-    
+
 Print the information related to [command]
 
 __NOTE:__ Help commands are still to be implemented in scaffolder
@@ -150,20 +151,20 @@ __NOTE:__ Help commands are still to be implemented in scaffolder
 
 ### `build` Command Options
 
-    --output [path]     
-    
+    --output [path]
+
 The directory in which output files will be generated. (default: dist/)
-    
+
     --wrap [platformTypes]
-    
-Used to tell Interleave to wrap distributions for particular types of 
+
+Used to tell Interleave to wrap distributions for particular types of
 platforms. (default: amd,commonjs,glob)
 
 ## License(s)
 
 ### MIT
 
-Copyright (c) 2014 Damon Oehlman <damon.oehlman@gmail.com>
+Copyright (c) 2016 Damon Oehlman <damon.oehlman@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
