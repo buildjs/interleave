@@ -20,7 +20,7 @@
     "rigger": "~0.5",
     "scaffolder": "~0.9.1",
     "squirrel": "~0.2.1",
-    "underscore": "~1.6.0"
+    "underscore": "1.8.3"
   },
   "pluginDependencies": {
     "resolveme": "0.1.x",
