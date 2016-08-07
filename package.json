@@ -5,7 +5,7 @@
   "bin": {
     "interleave": "./bin/interleave"
   },
-  "version": "0.6.1",
+  "version": "0.7.0",
   "dependencies": {
     "async": "~2.0.1",
     "debug": "~2.2.0",
